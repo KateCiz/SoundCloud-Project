@@ -29,6 +29,11 @@ All endpoints that require a current user to be logged in.
     }
     ```
 
+    ### Logged In Authentication 
+
+- All endpoints that require logged in users need to receive a standard authentication response.
+- Authentication middleware responds with error status 401 when authentication is not provided
+
 ## All endpoints that require proper authorization
 
 All endpoints that require authentication and the current user does not have the
