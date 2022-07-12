@@ -1,6 +1,6 @@
 # SoundCloud-Project
 
-# `<name of application here>`
+# `SoundCloud Project`
 
 ## Database Schema Design
 

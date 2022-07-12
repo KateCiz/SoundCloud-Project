@@ -1,33 +1,36 @@
 kanboard board rough draft:
 
-### Sign Up a New User
-Create a new user, log them in as the current user, and return the current
-user's information.
+### Get the Current User
+Return the information about the current logged in user.
 
-- New user exists in the database after request
-- Success response includes newly created id, firstName, lastName,
-username, email, and token
-- Error response has status 403 if the specified email already
-exists
-- Error response has status 400 if body validations for the
-username, email, firstName, or lastName are violated
+- An authenticated user is needed for a success response
+- Success response includes the user's id, firstName, lastName,
+username, and email
 
 ### Log In a User
 Log in a current user who has valid credentials and return the current user's
 information.
 
 - Success response includes the user's id, firstName, lastName,
-username, email, and token
+username, email, and token?
 - Error response has status 401 if invalid credentials are given
+- Error response has status 400 if body validations for the email or password are violated
+
+### Sign Up a New User
+Create a new user, log them in as the current user, and return the current
+user's information.
+
+- New user exists in the database after request
+- Success response includes newly created id, firstName, lastName,
+username, email, and token?
+- Error response has status 403 if the specified email already
+exists
+- Error response has status 403 if the specified username already
+exists
 - Error response has status 400 if body validations for the
 username, email, firstName, or lastName are violated
 
-### Get the Current User
-Return the information about the current logged in user.
 
-- An authenticated user is needed for a success response
-- Success response includes the user's id, firstName, lastName,
-username, email, and token
 
 
 
@@ -106,8 +109,8 @@ the provided id
 ### Get all Albums
 Return all the albums.
 
-- Return seed data for albums that exist in the database.
-- Success response includes each album in the database.
+- Return seed data for albums that exist in the database
+- Success response includes each album in the database
 - Return album data and include the id, userId, title, description,
 createdAt, updatedAt, and previewImage
 
@@ -228,7 +231,7 @@ Return the details of an artist specified by their id.
 
 - Success response includes data only for the specified artist
 - Return artist data and include the id, username, and previewImage
-- Return aggregate data for totalSongs, totalAlbums, and previewImage for each song
+- Return aggregate data for totalSongs and totalAlbums
 - Error response has status 404 if an artist does not exist with
 the provided id
 
@@ -262,7 +265,7 @@ Return all the playlists created by the artist specified by id.
 - Seed data exists in the database for playlists to be returned.
 - Success response include only playlists from the specified artist
 - Return playlist data and include the id, userId, name, createdAt,
-updatedAt, and previewImage for each playlist
+updatedAt, and previewImage
 - Error response has status 404 if an artist does not exist with
 the provided id
 
@@ -297,9 +300,9 @@ Return the details of a playlist specified by its id.
 - Success response includes data only for the specified playlist
 - Playlist data returned includes the id, userId, name, createdAt,
 updatedAt, and previewImage
-- Playlist data returns associated data for Songs, includes the id,
+- Return associated data for Songs and include the id,
 userId, albumId, title, description, url, createdAt, updatedAt,
-and previewImage for each song
+and previewImage
 - Error response has status 404  if a playlist does not exist
 has the provided id
 
@@ -333,7 +336,7 @@ Return all the playlists created by the current user.
 - An authenticated user is needed for a success response
 - Success response includes only playlists created by the current user
 - Return playlist data and include the id, userId, name, createdAt,
-updatedAt, and previewImage for each playlist
+updatedAt, and previewImage
 
 
 ### Add Query Filters to Get All Songs
@@ -344,8 +347,7 @@ Return songs filtered by query parameters.
 - Success response includes only songs in the database that meet the
 specified query parameters criteria
 - Return song data and includes the id, userId, albumId, title,
-description, url, createdAt, updatedAt, and previewImage for each
-song
+description, url, createdAt, updatedAt, and previewImage
 - Success response includes the page and size of the returned payload
 - Error response has status 400  if query parameter validations
-for the page, size, title, or createdAt are violated
+for the page, size, or createdAt are violated
