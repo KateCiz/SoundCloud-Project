@@ -10,6 +10,14 @@ module.exports = {
         primaryKey: true,
         type: Sequelize.INTEGER
       },
+      firstName: {
+        type: Sequelize.STRING,
+        allowNull: false
+      },
+      lastName: {
+        type: Sequelize.STRING,
+        allowNull: false
+      },
       username: {
         type: Sequelize.STRING(30),
         allowNull: false,
@@ -33,10 +41,17 @@ module.exports = {
         allowNull: false,
         type: Sequelize.DATE,
         defaultValue: Sequelize.literal('CURRENT_TIMESTAMP')
+      },
+      previewImage: {
+        type: Sequelize.STRING,
+        defaultValue: 'image url'
+      },
+      isArtist: {
+        type: Sequelize.BOOLEAN
       }
     });
   },
   async down(queryInterface, Sequelize) {
-    await queryInterface.dropTable('Users');
+    return queryInterface.bulkDelete('Users', null, { truncate: true, cascade: true });
   }
 };

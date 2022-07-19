@@ -2,7 +2,7 @@
 const bcrypt = require("bcryptjs");
 
 const {
-  Model, Validator
+  Model, Validator, Sequelize
 } = require('sequelize');
 module.exports = (sequelize, DataTypes) => {
   class User extends Model {
@@ -49,11 +49,23 @@ module.exports = (sequelize, DataTypes) => {
       });
       return await User.scope('currentUser').findByPk(user.id);
     }
+
     static associate(models) {
-      // define association here
+      User.hasMany(models.Album, {foreignKey: 'userId', onDelete: 'cascade', hooks: true })
+      User.hasMany(models.Comment, {foreignKey: 'userId', onDelete: 'cascade', hooks: true})
+      User.hasMany(models.Playlist, {foreignKey: 'userId', onDelete: 'cascade', hooks: true})
+      User.hasMany(models.Song, {foreignKey: 'userId', onDelete: 'cascade', hooks: true })
     }
   }
   User.init({
+    firstName: {
+      type: DataTypes.STRING,
+      allowNull: false
+    },
+    lastName: {
+      type: DataTypes.STRING,
+      allowNull: false
+    },
     username: {
       type: DataTypes.STRING,
       allowNull: false,
@@ -68,7 +80,7 @@ module.exports = (sequelize, DataTypes) => {
       }
     },
     email: {
-      type:DataTypes.STRING,
+      type: DataTypes.STRING,
       allowNull: false,
       unique: true,
        validate: {
@@ -82,7 +94,13 @@ module.exports = (sequelize, DataTypes) => {
       validate: {
         len: [60,60]
       }
-  }
+  },
+  previewImage: {
+    type:DataTypes.STRING
+  },
+   isArtist: {
+    type: DataTypes.BOOLEAN
+   }
 }, {
     sequelize,
     modelName: 'User',
