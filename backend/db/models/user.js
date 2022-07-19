@@ -24,14 +24,11 @@ module.exports = (sequelize, DataTypes) => {
     }
 
     //this logs a user into the application 
-    static async login({ credential, password }) {
+    static async login({ email, password }) {
       const { Op } = require('sequelize');
       const user = await User.scope('loginUser').findOne({
         where: {
-          [Op.or]: {
-            username: credential,
-            email: credential
-          }
+            email
         }
       });
       if (user && user.validatePassword(password)) {
@@ -40,9 +37,11 @@ module.exports = (sequelize, DataTypes) => {
     }
 
     //this creates a new instance of a user to be stored in the db
-    static async signup({ username, email, password }) {
+    static async signup({ firstName, lastName, username, email, password }) {
       const hashedPassword = bcrypt.hashSync(password);
       const user = await User.create({
+        firstName,
+        lastName,
         username,
         email,
         hashedPassword

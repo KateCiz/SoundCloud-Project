@@ -7,9 +7,9 @@ const { User } = require('../../db/models');
 const { check } = require('express-validator');
 const { handleValidationErrors } = require('../../utils/validation');
 
-//checks to make sure the login credentials pass the validations 
+//checks to make sure the login emails pass the validations 
 const validateLogin = [
-  check('credential')
+  check('email')
     .exists({ checkFalsy: true })
     .notEmpty()
     .withMessage('Please provide a valid email or username.'),
@@ -24,15 +24,15 @@ router.post(
   '/',
   validateLogin,
   async (req, res, next) => {
-    const { credential, password } = req.body;
+    const { email, password } = req.body;
 
-    const user = await User.login({ credential, password });
+    const user = await User.login({ email, password });
 
     if (!user) {
       const err = new Error('Login failed');
       err.status = 401;
       err.title = 'Login failed';
-      err.errors = ['The provided credentials were invalid.'];
+      err.errors = ['The provided emails were invalid.'];
       return next(err);
     }
 
