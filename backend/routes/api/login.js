@@ -4,7 +4,7 @@ const router = express.Router();
 const { setTokenCookie, restoreUser } = require('../../utils/auth');
 const { User } = require('../../db/models');
 
-const { check } = require('express-validator');
+const { check, cookie } = require('express-validator');
 const { handleValidationErrors } = require('../../utils/validation');
 
 //checks to make sure the login emails pass the validations 
@@ -36,36 +36,40 @@ router.post(
       return next(err);
     }
 
-    await setTokenCookie(res, user);
+    const jwtToken = await setTokenCookie(res, user);
 
-    return res.json({
-      user
-    });
+    if(jwtToken){
+      user.dataValues.token = jwtToken;
+    } else {
+      user.dataValues.token = "";
+    }
+
+    return res.json(user);
   }
 );
 
-// Log out
-router.delete(
-    '/',
-    (_req, res) => {
-      res.clearCookie('token');
-      return res.json({ message: 'success' });
-    }
-  );
+// // Log out
+// router.delete(
+//     '/',
+//     (_req, res) => {
+//       res.clearCookie('token');
+//       return res.json({ message: 'success' });
+//     }
+//   );
 
   // Restore session user
-router.get(
-    '/',
-    restoreUser,
-    (req, res) => {
-      const { user } = req;
-      if (user) {
-        return res.json({
-          user: user.toSafeObject()
-        });
-      } else return res.json({});
-    }
-  );
+// router.get(
+//     '/',
+//     restoreUser,
+//     (req, res) => {
+//       const { user } = req;
+//       if (user) {
+//         return res.json({
+//           user: user.toSafeObject()
+//         });
+//       } else return res.json({});
+//     }
+//   );
   
   
 

@@ -34,13 +34,29 @@ router.post(
     validateSignup,
     async (req, res) => {
       const { firstName, lastName, email, password, username } = req.body;
+      const check = await User.findOne({ where: {email}});
+
+      if(check){
+        res.status(403);
+        return res.json({
+          "message": "User already exists",
+          "statusCode": 403,
+          "errors": {
+            "email": "User with that email already exists"
+          }
+        })
+      }
       const user = await User.signup({ firstName, lastName, email, username, password });
   
-      await setTokenCookie(res, user);
+      const jwtToken = await setTokenCookie(res, user);
+
+      if(jwtToken){
+        user.dataValues.token = jwtToken;
+      } else {
+        user.dataValues.token = "";
+      }
   
-      return res.json({
-        user
-      });
+      return res.json(user);
     }
   );
 

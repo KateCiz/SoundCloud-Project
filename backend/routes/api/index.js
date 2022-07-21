@@ -1,17 +1,29 @@
 const router = require('express').Router();
 const loginRouter = require('./login.js');
 const meRouter = require('./me.js');
+const sessionRouter = require('./session.js');
 const signupRouter = require('./signup.js');
 
 router.use('/login', loginRouter);
 
 router.use('/me', meRouter);
 
+router.use('/session', sessionRouter);
+
 router.use('/signup', signupRouter);
 
 router.post('/test', function(req, res) {
     res.json({ requestBody: req.body });
   });
+
+ // Log out
+router.delete(
+    '/logout',
+    (_req, res) => {
+      res.clearCookie('token');
+      return res.json({ message: 'success' });
+    }
+  );
 
 
 
