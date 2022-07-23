@@ -1,5 +1,6 @@
 const router = require('express').Router();
 const albumRouter = require('./album.js');
+const artistRouter = require('./artist.js');
 const commentRouter = require('./comment.js');
 const loginRouter = require('./login.js');
 const meRouter = require('./me.js');
@@ -10,6 +11,8 @@ const songRouter = require('./song.js');
 
 
 router.use('/albums', albumRouter);
+
+router.use('/artists', artistRouter);
 
 router.use('/comments', commentRouter);
 
