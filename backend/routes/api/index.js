@@ -4,7 +4,7 @@ const artistRouter = require('./artist.js');
 const commentRouter = require('./comment.js');
 const loginRouter = require('./login.js');
 const meRouter = require('./me.js');
-// const playlistRouter = require('./playlist.js');
+const playlistRouter = require('./playlist.js');
 const sessionRouter = require('./session.js');
 const signupRouter = require('./signup.js');
 const songRouter = require('./song.js');
@@ -20,7 +20,7 @@ router.use('/login', loginRouter);
 
 router.use('/me', meRouter);
 
-// router.use('/playlist', playlistRouter);
+router.use('/playlists', playlistRouter);
 
 router.use('/session', sessionRouter);
 
