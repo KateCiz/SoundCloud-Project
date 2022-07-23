@@ -1,12 +1,19 @@
 const router = require('express').Router();
+const albumRouter = require('./album.js');
 const loginRouter = require('./login.js');
 const meRouter = require('./me.js');
+// const playlistRouter = require('./playlist.js');
 const sessionRouter = require('./session.js');
 const signupRouter = require('./signup.js');
+
+
+router.use('/albums', albumRouter);
 
 router.use('/login', loginRouter);
 
 router.use('/me', meRouter);
+
+// router.use('/playlist', playlistRouter);
 
 router.use('/session', sessionRouter);
 
