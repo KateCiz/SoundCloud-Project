@@ -5,6 +5,7 @@ const meRouter = require('./me.js');
 // const playlistRouter = require('./playlist.js');
 const sessionRouter = require('./session.js');
 const signupRouter = require('./signup.js');
+const songRouter = require('./song.js');
 
 
 router.use('/albums', albumRouter);
@@ -18,6 +19,8 @@ router.use('/me', meRouter);
 router.use('/session', sessionRouter);
 
 router.use('/signup', signupRouter);
+
+router.use('/songs', songRouter);
 
 router.post('/test', function(req, res) {
     res.json({ requestBody: req.body });

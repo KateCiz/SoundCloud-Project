@@ -59,8 +59,6 @@ async (req, res, next) => {
             } else {
                 return res.json({"message": "A song can only be added by the album owner"});
             }
-            
-            
         });
 
         // Delete an Album >> WORKS
