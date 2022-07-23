@@ -37,7 +37,7 @@ router.get('/:artistId', async (req, res, next) => {
     } else {
         oneArtist.dataValues.totalSongs = 0;
     }
-    delete oneArtist.dataValues.Songs
+    // delete oneArtist.dataValues.Songs
 
     return res.json(oneArtist);
 });
