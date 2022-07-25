@@ -11,7 +11,7 @@ router.get('/:artistId', async (req, res, next) => {
     const { artistId } = req.params;
     const oneArtist = await User.scope("artistDetails").findOne({
         where: { id: artistId}, 
-        include: [{ model: Album }, { model: Song }]
+        include: [{ model: Album }, { model: Song, attributes: ['previewImage'] }]
     });
     
     if(!oneArtist){
@@ -22,7 +22,6 @@ router.get('/:artistId', async (req, res, next) => {
         });
     }
     
-    console.log(oneArtist.dataValues.Albums)
     // this checks if the artist has any albums and counts them OR sets the total to 0 if none are found
     if(oneArtist.dataValues.Albums){
         oneArtist.dataValues.totalAlbums = oneArtist.dataValues.Albums.length;
@@ -37,7 +36,7 @@ router.get('/:artistId', async (req, res, next) => {
     } else {
         oneArtist.dataValues.totalSongs = 0;
     }
-    delete oneArtist.dataValues.Songs
+    // delete oneArtist.dataValues.Songs
 
     return res.json(oneArtist);
 });
