@@ -6,12 +6,12 @@ const { Op } = require("sequelize");
 const { User, Song, Album, Playlist } = require('../../db/models');
 
 
-// Get details of an Artist from an id >> WORKS
+// Get details of an Artist from an id >> WORKED in postman, but now does not >> need to include the song preview images
 router.get('/:artistId', async (req, res, next) => {
     const { artistId } = req.params;
     const oneArtist = await User.scope("artistDetails").findOne({
         where: { id: artistId}, 
-        include: [{ model: Album }, { model: Song, attributes: ['previewImage'] }]
+        include: [{ model: Album }, { model: Song }]
     });
     
     if(!oneArtist){
@@ -37,7 +37,7 @@ router.get('/:artistId', async (req, res, next) => {
     } else {
         oneArtist.dataValues.totalSongs = 0;
     }
-    // delete oneArtist.dataValues.Songs
+    delete oneArtist.dataValues.Songs
 
     return res.json(oneArtist);
 });
