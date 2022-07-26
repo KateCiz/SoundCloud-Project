@@ -6,7 +6,7 @@ module.exports = (sequelize, DataTypes) => {
   class Album extends Model {
 
     static associate(models) {
-      Album.hasMany(models.Song, {foreignKey: 'albumId', onDelete: 'cascade', hooks: true})
+      Album.hasMany(models.Song, {foreignKey: 'albumId'})
       Album.belongsTo(models.User, {foreignKey: 'userId',  as: 'Artist'})
     }
   }
