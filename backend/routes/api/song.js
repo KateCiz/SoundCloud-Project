@@ -3,6 +3,7 @@ const router = express.Router();
 
 const { requireAuth } = require('../../utils/auth.js');
 const { User, Song, Album, Comment } = require('../../db/models');
+const { where } = require('sequelize/types/sequelize.js');
 
 
 
@@ -153,7 +154,35 @@ router.get('/:songId', async (req, res, next) => {
 // Get all Songs >> WORKS
 router.get('/',
     async (req, res, next) => {
-        const allSongs = await Song.findAll();
+
+        // let { title, createdAt, page, size } = req.query;
+        
+        // const where = {};
+        // if(title){
+        //     where.title = title;
+        // }
+        // if(createdAt){
+        //     where.createdAt = createdAt;
+        // }
+//         const pagination = {};
+//   page = parseInt(page);
+//   size = parseInt(size);
+
+//   if(Number.isNaN(page)) page = 0;
+//   if(Number.isNaN(size)) size = 20;
+//   if(size > 20) size = 20;
+//   if(size < 0) size = 20;
+//   if(page > 10) page = 1;
+//   if(page < 0) page = 1;
+
+//   pagination.limit = size;
+//   pagination.offset = size * (page - 1);
+
+
+        const allSongs = await Song.findAll(
+            // where,
+            // ...pagination
+        );
         return res.json({"Songs": allSongs});
 });
 
