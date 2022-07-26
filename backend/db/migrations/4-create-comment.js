@@ -41,6 +41,6 @@ module.exports = {
     });
   },
   async down(queryInterface, Sequelize) {
-    return queryInterface.bulkDelete('Comments', null, { truncate: true, cascade: true });
+    await queryInterface.bulkDelete('Comments', null, { truncate: true, cascade: true });
   }
 };

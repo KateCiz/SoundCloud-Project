@@ -36,6 +36,6 @@ module.exports = {
     });
   },
   async down(queryInterface, Sequelize) {
-    return queryInterface.bulkDelete('Playlists', null, { truncate: true, cascade: true });
+    await queryInterface.bulkDelete('Playlists', null, { truncate: true, cascade: true });
   }
 };

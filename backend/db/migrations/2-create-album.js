@@ -10,6 +10,7 @@ module.exports = {
       },
       userId: {
         type: Sequelize.INTEGER,
+        onDelete: 'CASCADE',
         references: {
           model: 'Users',
           key: 'id'
@@ -38,6 +39,6 @@ module.exports = {
     });
   },
   async down(queryInterface, Sequelize) {
-    return queryInterface.bulkDelete('Albums', null, { truncate: true, cascade: true });
+    await queryInterface.bulkDelete('Albums', null, { truncate: true, cascade: true });
   }
 };

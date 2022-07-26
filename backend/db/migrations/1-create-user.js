@@ -52,6 +52,6 @@ module.exports = {
     });
   },
   async down(queryInterface, Sequelize) {
-    return queryInterface.bulkDelete('Users', null, { truncate: true, cascade: true });
+    await queryInterface.bulkDelete('Users', null, { truncate: true, cascade: true });
   }
 };
