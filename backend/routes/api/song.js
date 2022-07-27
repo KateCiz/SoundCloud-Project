@@ -3,7 +3,7 @@ const router = express.Router();
 
 const { requireAuth } = require('../../utils/auth.js');
 const { User, Song, Album, Comment } = require('../../db/models');
-const { where } = require('sequelize/types/sequelize.js');
+
 
 
 
