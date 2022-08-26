@@ -28,7 +28,7 @@ export const loginSessionUser = (email, password) => async (dispatch) => {
     }
 }
 
-console.log(wow);
+console.log(test2);
 
 const initialState = { user: null };
 
