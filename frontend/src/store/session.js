@@ -28,7 +28,7 @@ export const loginSessionUser = (email, password) => async (dispatch) => {
     }
 }
 
-console.log(test2);
+console.log(test3);
 
 const initialState = { user: null };
 
