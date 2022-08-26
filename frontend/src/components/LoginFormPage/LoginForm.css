@@ -1,0 +1,23 @@
+form {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+label {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 10px;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif
+}
+
+button {
+    background-color: #F50;
+    color: white;
+    border: #f50;
+    border-radius: 3px;
+    padding: 2px 16px;
+    height: 30px;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
