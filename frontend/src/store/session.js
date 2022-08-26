@@ -28,6 +28,8 @@ export const loginSessionUser = (email, password) => async (dispatch) => {
     }
 }
 
+console.log(wow);
+
 const initialState = { user: null };
 
 const sessionReducer = (state = initialState, action) => {
