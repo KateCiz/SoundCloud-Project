@@ -25,7 +25,7 @@ const deleteSessionUser = () => ({
 });
 
 export const getSessionUser = () => async (dispatch) => {
-	const response = await fetch('/api/session');
+	const response = await csrfFetchFunction('/api/session');
 
 	if (response.ok) {
 		const user = await response.json();
@@ -64,6 +64,14 @@ export const loginSessionUser = (email, password) => async (dispatch) => {
         dispatch(addSessionUser(user));
     }
 };
+
+export const removeSessionUser = () => async (dispatch) => {
+	const response = await csrfFetchFunction('/api/logout', {
+        method: 'DELETE'
+    });
+		dispatch(deleteSessionUser());
+        return response;
+	};
 
 
 const initialState = { user: null };
