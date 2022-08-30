@@ -1,8 +1,55 @@
-function ProfileButton() {
+import { useState, useEffect } from 'react';
+import { useDispatch } from 'react-redux';
+import * as sessionActions from '../../store/session'; 
+
+function ProfileButton({user}) {
+    const dispatch = useDispatch();
+    const [isMenuShown, setIsMenuShown] = useState(false);
+    
+    const showMenu = () => {
+        if(isMenuShown) return;
+        setIsMenuShown(true);
+    };
+
+    useEffect(() => {
+        //this makes sure the click event listener is only activated 
+        //if the menu is open 
+        if(!isMenuShown) return;
+
+        const hideMenu = () => {
+            setIsMenuShown(false);
+        };
+
+        //while the menu is open there is an event listener 
+        //listening to see if the user clicks away from the menu 
+        //if so the menu should close
+        document.addEventListener('click', hideMenu);
+
+        //clean up function
+        return () => document.removeEventListener('click', hideMenu);
+    }, [isMenuShown]);
+
+    const logout = (e) => {
+        e.preventDefault();
+        dispatch(sessionActions.removeSessionUser());
+    };
+
     return (
-        // <i className="fa-solid fa-user-music"></i>
-        <i class="fa-solid fa-user"></i>
-    )
-}
+        <>
+            <button onClick={showMenu}>
+                <i className="fa-solid fa-user"></i>
+            </button>
+            {isMenuShown && (
+                <ul>
+                    <li>{user.username}</li>
+                    <li>{user.email}</li>
+                    <li>
+                        <button onClick={logout}>Log Out</button>
+                    </li>
+                </ul>
+            )}
+        </>
+    );
+};
 
 export default ProfileButton;

@@ -17,8 +17,8 @@ function Navigation() {
     else(
         sessionNavLinks = (
              <>
-                 <ProfileButton />
-                 <NavLink to='/logout'>Log Out</NavLink>
+                 <ProfileButton user={loggedInUser} />
+                 {console.log(loggedInUser)}
              </>
          )
     )
