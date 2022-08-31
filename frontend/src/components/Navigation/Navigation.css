@@ -1,0 +1,17 @@
+#navigation-bar{
+    background-color: #333;
+}
+
+.nav-text {
+    color: #ccc;
+}
+
+.nav-item {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#all-nav-items {
+    display: inline;
+}

@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import * as sessionActions from '../../store/session'; 
+import './Navigation.css';
 
 function ProfileButton({user}) {
     const dispatch = useDispatch();
@@ -36,12 +37,12 @@ function ProfileButton({user}) {
 
     return (
         <>
-            <button onClick={showMenu}>
+            <button className='nav-item' onClick={showMenu}>
                 <i className="fa-solid fa-user"></i>
             </button>
             {isMenuShown && (
                 <ul>
-                    <li>{user.username}</li>
+                    <li>{user.firstName}</li>
                     <li>{user.email}</li>
                     <li>
                         <button onClick={logout}>Log Out</button>

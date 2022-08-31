@@ -13,7 +13,7 @@ function SplashPage(){
         <button>Upload Your Own</button>
     </div>
     <div id='splash-call-to-action'>
-        <p>Come On! What are you waiting for? Upload your music today!</p>
+        <p id="call-to-action-text">Come On! What are you waiting for? Upload your music today!</p>
     </div>
     </>
     )
