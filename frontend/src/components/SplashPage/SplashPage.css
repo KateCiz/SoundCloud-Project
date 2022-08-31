@@ -1,4 +1,5 @@
 #top-splash-image-div {
+    margin:auto;
     width: 80%;
     height: 300px;
     background-image: url(https://res.cloudinary.com/dymmlu1dw/image/upload/v1661823790/soundcloud/pexels-andrea-piacquadio-3800507_oghljx.jpg);
@@ -8,9 +9,12 @@
 }
 
 #splash-call-to-action {
+    margin: auto;
     width: 80%;
     height: 20%;
     background-color: black;
+    display: flex;
+   justify-content: center;
 }
 
 #call-to-action-text {
@@ -18,3 +22,14 @@
     color: white;
 }
 
+#splash-buttons {
+    width: 80%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 5% auto 5% auto;
+}
+
+.splash-buttons-content {
+    margin: 2px;
+}
