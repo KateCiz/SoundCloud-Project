@@ -8,7 +8,7 @@ function GuestUserButton() {
     const [errors, setErrors] = useState([]);
 
 
-    const email = 'test1@user.io';
+    const email = 'demo@user.io';
     const password = 'password';
 
     const logInGuest = (e) => {

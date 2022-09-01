@@ -42,8 +42,8 @@ function ProfileButton({user}) {
             </button>
             {isMenuShown && (
                 <ul>
-                    <li>{user.user.firstName}</li>
-                    <li>{user.user.email}</li>
+                    {/* <li>{user.user.firstName}</li> */}
+                    <li>{user.email}</li>
                     <li>
                         <button onClick={logout}>Log Out</button>
                     </li>
