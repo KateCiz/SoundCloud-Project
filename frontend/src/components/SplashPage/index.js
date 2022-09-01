@@ -4,6 +4,7 @@ import './SplashPage.css';
 
 function SplashPage(){
     const loggedInUser = useSelector(state => state.session.user);
+    
     let content;
 
     if(!loggedInUser) {

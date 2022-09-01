@@ -5,10 +5,10 @@ import './Navigation.css';
 import GuestUserButton from './GuestUserButton';
 
 function Navigation() {
-    const loggedInUser = useSelector(state => state.session.user.user);
+    const loggedInUser = useSelector(state => state.session.user);
     let sessionNavLinks;
 
-    if(loggedInUser !== {}){
+    if(!loggedInUser?.id){
         sessionNavLinks = (
             <>
                 <NavLink className='nav-text nav-item' to='/signup'>Sign Up</NavLink>
@@ -17,7 +17,7 @@ function Navigation() {
             </>
         )
     }
-    else if(loggedInUser.user.id)(
+    else if(loggedInUser.id)(
         sessionNavLinks = (
              <>
                  <ProfileButton user={loggedInUser} />
