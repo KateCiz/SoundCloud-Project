@@ -2,6 +2,7 @@ import { NavLink } from 'react-router-dom';
 import { useSelector } from 'react-redux'; 
 import ProfileButton from './ProfileButton';
 import './Navigation.css';
+import GuestUserButton from './GuestUserButton';
 
 function Navigation() {
     const loggedInUser = useSelector(state => state.session.user);
@@ -12,6 +13,7 @@ function Navigation() {
             <>
                 <NavLink className='nav-text nav-item' to='/signup'>Sign Up</NavLink>
                 <NavLink  className='nav-text nav-item' to='/login'>Login</NavLink>
+                <GuestUserButton />
             </>
         )
     }
