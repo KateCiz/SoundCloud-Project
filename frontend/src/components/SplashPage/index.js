@@ -7,7 +7,7 @@ function SplashPage(){
     
     let content;
 
-    if(!loggedInUser) {
+    if(!loggedInUser || loggedInUser?.id === undefined) {
         content = (
             <div className='splash-content'>
                 <div id="top-splash-image-div">
@@ -23,7 +23,7 @@ function SplashPage(){
                 </div>
             </div> 
         );
-    } else if(loggedInUser) {
+    } else if(loggedInUser?.id && loggedInUser?.id !== undefined) {
         content = (
             <div className='splash-content'>
                 <div id="top-logged-in-splash-image-div"> 

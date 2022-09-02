@@ -8,7 +8,7 @@ function Navigation() {
     const loggedInUser = useSelector(state => state.session.user);
     let sessionNavLinks;
 
-    if(!loggedInUser?.id){
+    if(!loggedInUser?.id || loggedInUser?.id === undefined){
         sessionNavLinks = (
             <>
                 <NavLink className='nav-text nav-item' to='/signup'>Sign Up</NavLink>

@@ -5,9 +5,9 @@ const SIGN_UP_SESSION_USER = 'session/SIGN_UP_SESSION_USER';
 const ADD_SESSION_USER = 'session/ADD_SESSION_USER';
 const DELETE_SESSION_USER = 'session/DELETE_SESSION_USER';
 
-const loadSessionUser = (user) => ({
+const loadSessionUser = (payload) => ({
     type: LOAD_SESSION_USER,
-    user
+    payload
 });
 
 const signUpSessionUser = (user) => ({
@@ -28,9 +28,10 @@ export const getSessionUser = () => async (dispatch) => {
 	const response = await csrfFetchFunction('/api/session');
 
 	if (response.ok) {
-		const user = await response.json();
-        console.log(user);
-		dispatch(loadSessionUser(user));
+		const userObj = await response.json();
+        const payload = {id: userObj.user?.id, email: userObj.user?.email}
+        console.log('this', payload);
+		dispatch(loadSessionUser(payload));
 	}
 };
 
@@ -81,7 +82,7 @@ const sessionReducer = (state = initialState, action) => {
     const newState = {...state};
     switch (action.type){
         case LOAD_SESSION_USER: 
-            newState.user = action.user;
+            newState.user = action.payload;
             return newState;
         case SIGN_UP_SESSION_USER:
             newState.user = action.user;
