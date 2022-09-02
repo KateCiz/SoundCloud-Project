@@ -12,7 +12,7 @@ function LoginFormPage() {
     const [errors, setErrors] = useState([]);
 
  
-    if (loggedInUser.id) return (
+    if (loggedInUser?.id) return (
         <Redirect to="/" />
       );    
 

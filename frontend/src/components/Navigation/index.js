@@ -30,6 +30,7 @@ function Navigation() {
         {console.log(loggedInUser)}
         <ul id='all-nav-items'>
             <NavLink className='nav-text nav-item' to='/'>Home</NavLink>
+            <NavLink className='nav-text nav-item' to='/songs'>Songs</NavLink>
             {sessionNavLinks}
         </ul>
     </nav>

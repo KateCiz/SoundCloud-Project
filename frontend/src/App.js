@@ -6,6 +6,8 @@ import SignUpFormPage from './components/SignUpFormPage';
 import * as sessionActions from './store/session';
 import Navigation from './components/Navigation';
 import SplashPage from './components/SplashPage';
+import SongsPage from './components/AllSongsPage';
+import SongDetailPage from './components/SongDetailPage';
 
 function App() {
   const dispatch = useDispatch();
@@ -28,6 +30,12 @@ function App() {
           </Route>
           <Route path="/signup">
             <SignUpFormPage />
+          </Route>
+          <Route exact path="/songs">
+            <SongsPage />
+          </Route>
+          <Route path='/songs/:songId'>
+            <SongDetailPage />
           </Route>
         </Switch>
       )}
