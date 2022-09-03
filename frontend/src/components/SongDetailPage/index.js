@@ -45,7 +45,8 @@ const SongDetailPage = () => {
             >
                 <ul>
                     <li>{song.title}</li>
-                    <li>{song.Artist.username}</li>
+                    {console.log('detail song', song)}
+                    <li>{song?.Artist?.username}</li>
                     <li>{song.description}</li>
                     <li>{song.url}</li> 
                 </ul>

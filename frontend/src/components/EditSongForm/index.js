@@ -1,9 +1,12 @@
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
+import { useParams } from 'react-router-dom';
 import { editCurrentSong } from '../../store/song';
+
 
 const EditSongForm = ({ song, hideForm }) => {
   const dispatch = useDispatch();
+  const { songId } = useParams();
 
     const [title, setTitle] = useState(song.title);
     const [description, setDescription] = useState(song.description);
@@ -22,7 +25,7 @@ const EditSongForm = ({ song, hideForm }) => {
         imageUrl
     };
     
-    let updatedSong = await dispatch(editCurrentSong(songEdited))
+    let updatedSong = await dispatch(editCurrentSong(songId, songEdited))
         .catch(async (res) => {
             const data = await res.json();
             if (data && data.errors) setErrors(data.errors);

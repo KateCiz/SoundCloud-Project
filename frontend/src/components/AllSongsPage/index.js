@@ -1,13 +1,13 @@
 import { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { NavLink, Redirect } from 'react-router-dom';
+import { NavLink, useHistory} from 'react-router-dom';
 import { getSongs } from '../../store/song';
 
 const SongsPage = () => {
 
 const  songs = Object.values(useSelector(state => state.song));
 const dispatch = useDispatch();
-
+const history = useHistory();
 
 useEffect(() => {
   dispatch (getSongs());
@@ -17,10 +17,9 @@ if (!songs) {
   return null;
 }
 
-console.log('loaded-state', songs);
-
 const goToDetails = (songId) => {
-  <Redirect to={`/songs/${songId}`} />
+  console.log('songId', songId);
+  history.push(`/songs/${songId}`);
 }
 
   return (
@@ -31,7 +30,7 @@ const goToDetails = (songId) => {
           <ul>
               {songs && songs.map(song => {
                 return (
-                  <div onClick={goToDetails(song.id)}>
+                  <div onClick={() => goToDetails(song.id)}>
                       <div 
                           className='song-list-image' 
                           style={{ backgroundImage: `url('${song.imageUrl}')` }}>
