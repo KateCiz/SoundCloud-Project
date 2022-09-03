@@ -1,11 +1,18 @@
-import { useSelector } from 'react-redux';
+import { useEffect } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
 import './SplashPage.css';
+import { getSongs } from '../../store/song';
 
 
 function SplashPage(){
     const loggedInUser = useSelector(state => state.session.user);
+    const dispatch = useDispatch();
     
     let content;
+
+    useEffect(() => {
+        dispatch(getSongs());
+    });
 
     if(!loggedInUser || loggedInUser?.id === undefined) {
         content = (

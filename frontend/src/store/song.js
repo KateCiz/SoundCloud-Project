@@ -6,7 +6,7 @@ const CREATE_SONG = 'songs/CREATE_SONG';
 const EDIT_SONG = 'songs/EDIT_SONG';
 const DELETE_SONG = 'songs/DELETE_SONG';
 
-const loadSongs = (songs) => ({ 
+export const loadSongs = (songs) => ({ 
     type: LOAD_SONGS,
     songs
 });
