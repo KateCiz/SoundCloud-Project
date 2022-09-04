@@ -1,18 +1,27 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import './SplashPage.css';
 import { getSongs } from '../../store/song';
+import CreateAlbumForm from '../CreateAlbumForm';
 
 
 function SplashPage(){
     const loggedInUser = useSelector(state => state.session.user);
+    const [showCreateAlbumForm, setShowCreateAlbumForm] = useState(false);
     const dispatch = useDispatch();
-    
+
     let content;
 
     useEffect(() => {
         dispatch(getSongs());
     });
+
+    let otherInfo = (
+          <CreateAlbumForm 
+            hideForm={() => setShowCreateAlbumForm(false)} 
+          />
+        );
+
 
     if(!loggedInUser || loggedInUser?.id === undefined) {
         content = (
@@ -39,8 +48,9 @@ function SplashPage(){
                     <input className='splash-buttons-content' type='search'></input>
                     <button className='splash-buttons-content'>Search</button>
                     <p className='splash-buttons-content'> OR </p>
-                    <button className='splash-buttons-content'>Upload Your Own</button>
+                    <button className='splash-buttons-content' onClick={() => setShowCreateAlbumForm(true)}>Upload Your Own</button>
                 </div>
+                {showCreateAlbumForm && otherInfo}
             </div>
         )
     }
