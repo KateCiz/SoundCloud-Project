@@ -29,13 +29,13 @@ function SplashPage(){
                 <div id="top-splash-image-div">
                 </div>
                 <div id='splash-buttons'>
-                    <input className='splash-buttons-content' type='search'></input>
-                    <button className='splash-buttons-content'>Search</button>
-                    <p className='splash-buttons-content'> OR </p>
-                    <button className='splash-buttons-content'>Upload Your Own</button>
+                    {/* <input className='splash-buttons-content' type='search'></input>
+                    <button className='splash-buttons-content'>Search</button> */}
+                    {/* <p className='splash-buttons-content'> OR </p> */}
+                    {/* <button className='splash-buttons-content' onClick={() => notLoggedIn()}>Upload Your Own</button> */}
                 </div>
                 <div id='splash-call-to-action'>
-                    <p id="call-to-action-text">Come On! What are you waiting for? Upload your music today!</p>
+                    <p id="call-to-action-text">Come On! What are you waiting for? Sign up to upload your music today!</p>
                 </div>
             </div> 
         );
@@ -45,10 +45,10 @@ function SplashPage(){
                 <div id="top-logged-in-splash-image-div"> 
                 </div>
                 <div id='splash-buttons'>
-                    <input className='splash-buttons-content' type='search'></input>
-                    <button className='splash-buttons-content'>Search</button>
-                    <p className='splash-buttons-content'> OR </p>
-                    <button className='splash-buttons-content' onClick={() => setShowCreateAlbumForm(true)}>Upload Your Own</button>
+                    {/* <input className='splash-buttons-content' type='search'></input> */}
+                    {/* <button className='splash-buttons-content'>Search</button>
+                    <p className='splash-buttons-content'> OR </p> */}
+                    <button className='splash-buttons-content' onClick={() => setShowCreateAlbumForm(true)}>Create An Album</button>
                 </div>
                 {showCreateAlbumForm && otherInfo}
             </div>
