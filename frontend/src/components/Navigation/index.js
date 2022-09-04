@@ -31,6 +31,7 @@ function Navigation() {
         <ul id='all-nav-items'>
             <NavLink className='nav-text nav-item' to='/'>Home</NavLink>
             <NavLink className='nav-text nav-item' to='/songs'>Songs</NavLink>
+            <NavLink className='nav-text nav-item' to='/albums'>Albums</NavLink>
             {sessionNavLinks}
         </ul>
     </nav>

@@ -41,7 +41,7 @@ const SongDetailPage = () => {
               <div className={`song-detail-image-background`}>
             <div
               className="song-detail-image"
-              style={{ backgroundImage: `url('${song.imageUrl}')` }}
+              style={{ backgroundImage: `url('${song.previewImage}')` }}
             >
                 <ul>
                     <li>{song.title}</li>

@@ -1,37 +1,32 @@
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { useParams } from 'react-router-dom';
-import { editCurrentSong } from '../../store/song';
+import { editCurrentAlbum } from '../../store/album';
 
-
-const EditSongForm = ({ song, hideForm }) => {
+const EditAlbumForm = ({ album, hideForm }) => {
   const dispatch = useDispatch();
-  const { songId } = useParams();
 
-    const [title, setTitle] = useState(song.title);
-    const [description, setDescription] = useState(song.description);
-    const [url, setUrl] = useState(song.url);
-    const [previewImage, setPreviewImage] = useState(song.previewImage);
-    const [errors, setErrors] = useState([]);
+  const [title, setTitle] = useState(album.title);
+  const [description, setDescription] = useState(album.description);
+  const [imageUrl, setImageUrl] = useState(album.imageUrl);
+  const [errors, setErrors] = useState([]);
+
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     setErrors([]);
 
-    let songEdited = {
+    let albumEdited = {
         title,
         description,
-        url,
-        previewImage
+        imageUrl
     };
     
-    let updatedSong = await dispatch(editCurrentSong(songId, songEdited))
+    let updatedAlbum = await dispatch(editCurrentAlbum(albumEdited))
         .catch(async (res) => {
             const data = await res.json();
             if (data && data.errors) setErrors(data.errors);
         });
-
-    if (updatedSong) {
+    if (updatedAlbum) {
       hideForm();
     }
   };
@@ -42,7 +37,7 @@ const EditSongForm = ({ song, hideForm }) => {
   };
 
   return (
-    <section className="edit-song-form">
+    <section className="edit-album-form">
       <form onSubmit={handleSubmit}>
       <ul>
                 {errors.map((error, idx) => <li key={idx}>{error}</li>)}
@@ -64,27 +59,19 @@ const EditSongForm = ({ song, hideForm }) => {
                 />
             </label>
             <label>
-                Url:
-                <input
-                    type="text"
-                    value={url}
-                    onChange={(e) => setUrl(e.target.value)} 
-                />
-            </label>
-            <label>
                 Image Url:
                 <input
                     type="text"
-                    value={previewImage}
-                    onChange={(e) => setPreviewImage(e.target.value)} 
+                    value={imageUrl}
+                    onChange={(e) => setImageUrl(e.target.value)} 
                 />
             </label>
         
-        <button type="submit">Update Song</button>
+        <button type="submit">Update Album</button>
         <button type="button" onClick={handleClickAway}>Cancel</button>
       </form>
     </section>
   );
 };
 
-export default EditSongForm;
+export default EditAlbumForm;

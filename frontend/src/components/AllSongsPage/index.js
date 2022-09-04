@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { NavLink, useHistory} from 'react-router-dom';
+import { useHistory} from 'react-router-dom';
 import { getSongs } from '../../store/song';
 
 const SongsPage = () => {
@@ -24,21 +24,20 @@ const goToDetails = (songId) => {
 
   return (
       <div className="song-detail">
-          <div>
-              <NavLink to='/songs/create'>Upload Your Own</NavLink> {/*need a route in App.js that takes you to the CreateSongForm*/}
-          </div>
           <ul>
               {songs && songs.map(song => {
                 return (
+                  <li key={song.id}>
                   <div onClick={() => goToDetails(song.id)}>
                       <div 
                           className='song-list-image' 
-                          style={{ backgroundImage: `url('${song.imageUrl}')` }}>
+                          style={{ backgroundImage: `url('${song.previewImage}')` }}>
                           <div>
                               <p className='song-list-title'>{song.title}</p>
                           </div>
                       </div>
                   </div>
+                  </li>
                   );
                 })}
           </ul>
