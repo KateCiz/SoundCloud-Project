@@ -6,7 +6,7 @@ const CREATE_ALBUM = 'albums/CREATE_ALBUM';
 const EDIT_ALBUM = 'albums/EDIT_ALBUM';
 const DELETE_ALBUM = 'albums/DELETE_ALBUM';
 
-const loadAlbums = (albums) => ({ //look at pokemon example for help
+const loadAlbums = (albums) => ({
     type: LOAD_ALBUMS,
     albums
 });
@@ -66,8 +66,9 @@ export const createNewAlbum = (album) => async (dispatch) => {
     }
 };
 
-export const editCurrentAlbum = (album) => async (dispatch) => {
-    const response = await csrfFetchFunction(`/api/albums/${album.id}`, { //look at pokemon example for help
+export const editCurrentAlbum = (albumId, album) => async (dispatch) => {
+    console.log('test1', album);
+    const response = await csrfFetchFunction(`/api/albums/${albumId}`, {
         method: 'PUT', 
         headers: {
             "Content-Type": "application/json"
@@ -77,7 +78,7 @@ export const editCurrentAlbum = (album) => async (dispatch) => {
 
     if(response.ok){
         const album = await response.json();
-        console.log(album);
+        console.log('edited album', album);
         dispatch(editAlbum(album));
         return album;
     }
