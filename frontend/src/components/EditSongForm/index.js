@@ -22,7 +22,7 @@ const EditSongForm = ({ song, hideForm }) => {
         title,
         description,
         url,
-        previewImage
+        imageUrl: previewImage
     };
     
     let updatedSong = await dispatch(editCurrentSong(songId, songEdited))

@@ -29,7 +29,7 @@ function CreateSongForm({ album }) {
             title,
             description,
             url,
-            previewImage
+            imageUrl: previewImage
         };
 
         history.push('/songs')
