@@ -51,8 +51,9 @@ export const getOneSong = (songId) => async (dispatch) => {
 	}
 };
 
-export const createNewSong = (song) => async (dispatch) => {
-    const response = await csrfFetchFunction('/api/songs', {
+export const createNewSong = (albumId, song) => async (dispatch) => {
+    console.log('song before the fetch', song);
+    const response = await csrfFetchFunction(`/api/albums/${albumId}/songs`, {
         method: 'POST', 
         headers: {
             "Content-Type": "application/json"
@@ -62,7 +63,7 @@ export const createNewSong = (song) => async (dispatch) => {
 
     if(response.ok){
         const song = await response.json();
-        console.log(song);
+        console.log('try to add song', song);
         dispatch(createSong(song));
         return song;
     }

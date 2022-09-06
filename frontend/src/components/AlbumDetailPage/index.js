@@ -1,36 +1,60 @@
 import { useState, useEffect } from 'react';
-import { useParams } from 'react-router-dom';
+import { useParams, useHistory } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import EditAlbumForm from '../EditAlbumForm';
+import CreateSongForm from '../CreateSongForm';
 import { getOneAlbum, removeAlbum } from '../../store/album';
 
 const AlbumDetailPage = () => {
     const dispatch= useDispatch();
+    const history = useHistory();
 
   const { albumId } = useParams();
   const album = useSelector(state => state.album[albumId]); //is this line necessary???
   const [showEditAlbumForm, setShowEditAlbumForm] = useState(false);
+  const [showCreateSongForm, setShowCreateSongForm] = useState(false);
   const loggedInUser = useSelector(state => state.session.user);
-  let otherInfo;
+  let editForm;
+  let createForm;
 
   useEffect(() => {
     setShowEditAlbumForm(false);
 	  dispatch (getOneAlbum(albumId));
   }, [albumId, dispatch]);
 
+  // useEffect(() => {
+  //   setShowCreateSongForm(false);
+  // }, [showCreateSongForm]);
+
   if (!album) {
     return null;
   }
 console.log("album songs", album.Songs);
 
-if (showEditAlbumForm && album.userId === loggedInUser?.id) {
-    otherInfo = (
+if (showEditAlbumForm && album.userId === loggedInUser?.id){
+    editForm = (
       <EditAlbumForm 
         album={album} 
         hideForm={() => setShowEditAlbumForm(false)} 
       />
     );
-    };
+};
+
+if(showCreateSongForm && album.userId === loggedInUser?.id){
+    createForm = (
+      <CreateSongForm 
+        album={album}
+        hideForm={() => setShowCreateSongForm(false)} 
+      />
+  );
+}
+
+const deleteAlbum = (albumId) => {
+  history.push('/albums')
+  return (
+    dispatch(removeAlbum(albumId))
+  );
+};
 
     return (
         <div className="album-detail">
@@ -55,12 +79,22 @@ if (showEditAlbumForm && album.userId === loggedInUser?.id) {
                 <button onClick={() => setShowEditAlbumForm(true)}>Edit</button>
               )}
               {(album.userId === loggedInUser?.id) && (
-                <button onClick={() => dispatch(removeAlbum(albumId))}>Delete</button>
+                <button onClick={() => (deleteAlbum(albumId))}>Delete</button>
+              )}
+            </div>
+            <div>
+            {(!showCreateSongForm && album.userId === loggedInUser?.id) && (
+                <button onClick={() => setShowCreateSongForm(true)}>Add Song</button>
               )}
             </div>
     
           </div>
-          {otherInfo}
+          <div>
+          {editForm}
+          </div>
+          <div>
+          {createForm}
+          </div>
         </div>
       );
     };

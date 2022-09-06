@@ -1,11 +1,12 @@
 import { useState, useEffect } from 'react';
-import { useParams } from 'react-router-dom';
+import { useParams, useHistory } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import EditSongForm from '../EditSongForm';
 import { getOneSong, removeSong } from '../../store/song';
 
 const SongDetailPage = () => {
     const dispatch= useDispatch();
+    const history = useHistory();
 
     const { songId } = useParams();
     const song = useSelector(state => state.song[songId]); //is this line necessary???
@@ -21,6 +22,13 @@ const SongDetailPage = () => {
     if (!song) {
       return null;
     }
+
+    const deleteSong = (songId) => {
+      history.push('/songs')
+      return (
+        dispatch(removeSong(songId))
+      );
+    };
 
     if (showEditSongForm && song.userId === loggedInUser?.id) {
         otherInfo = (
@@ -56,7 +64,7 @@ const SongDetailPage = () => {
                 <button onClick={() => setShowEditSongForm(true)}>Edit</button>
               )}
               {(song.userId === loggedInUser?.id) && (
-                <button onClick={() => dispatch(removeSong(songId))}>Delete</button>
+                <button onClick={() => (deleteSong(songId))}>Delete</button>
               )}
             </div>
     

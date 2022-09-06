@@ -1,23 +1,25 @@
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import * as songActions from '../../store/song';
-import { Redirect, useParams } from 'react-router-dom';
+import { Redirect, useParams, useHistory } from 'react-router-dom';
 
 function CreateSongForm({ album }) {
     const dispatch = useDispatch();
+    const history = useHistory();
     const { albumId } = useParams();
 
     const loggedInUser = useSelector(state => state.session.user);
     const [title, setTitle] = useState('');
     const [description, setDescription] = useState('');
     const [url, setUrl] = useState('');
-    const [imageUrl, setImageUrl] = useState('');
+    const [previewImage, setPreviewImage] = useState('');
     const [errors, setErrors] = useState([]);
 
-    if (loggedInUser.id !== album.userId) return (
+    if (loggedInUser?.id !== album?.userId) return (
         <Redirect to={`/albums/${albumId}`} />
       );
   
+
 
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -27,10 +29,12 @@ function CreateSongForm({ album }) {
             title,
             description,
             url,
-            imageUrl
+            previewImage
         };
 
-        return dispatch(songActions.addNewSong(song))
+        history.push('/songs')
+
+        return dispatch(songActions.createNewSong(albumId, song))
           .catch(async (res) => {
             const data = await res.json();
             if (data && data.errors) setErrors(data.errors);
@@ -70,8 +74,8 @@ function CreateSongForm({ album }) {
                 Image Url:
                 <input
                     type="text"
-                    value={imageUrl}
-                    onChange={(e) => setImageUrl(e.target.value)} 
+                    value={previewImage}
+                    onChange={(e) => setPreviewImage(e.target.value)} 
                     required />
             </label>
             <button type="submit" disabled={errors.length > 0}>Create Song</button>
