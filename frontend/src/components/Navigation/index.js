@@ -17,7 +17,16 @@ function Navigation() {
             </>
         )
     }
-    else if(loggedInUser.id)(
+    else if(loggedInUser?.id === 5)(
+        sessionNavLinks = (
+             <>
+                <NavLink className='nav-text nav-item' to='/signup'>Sign Up</NavLink>
+                <ProfileButton user={loggedInUser} />
+                {console.log(loggedInUser)}
+             </>
+         )
+    )
+    else if(loggedInUser?.id)(
         sessionNavLinks = (
              <>
                  <ProfileButton user={loggedInUser} />

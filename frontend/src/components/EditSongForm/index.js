@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { useParams } from 'react-router-dom';
-import { editCurrentSong } from '../../store/song';
+import { editCurrentSong, getOneSong } from '../../store/song';
 
 
 const EditSongForm = ({ song, hideForm }) => {
@@ -32,6 +32,7 @@ const EditSongForm = ({ song, hideForm }) => {
         });
 
     if (updatedSong) {
+      dispatch(getOneSong(songId));
       hideForm();
     }
   };

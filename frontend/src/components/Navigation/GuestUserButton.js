@@ -8,8 +8,9 @@ function GuestUserButton() {
     const [errors, setErrors] = useState([]);
 
 
-    const email = 'demo@user.io';
+    const email = 'guest@user.io';
     const password = 'password';
+    // guest id === 5
 
     const logInGuest = (e) => {
         return dispatch(sessionActions.loginSessionUser(email, password))
@@ -21,7 +22,7 @@ function GuestUserButton() {
 
     return (
         <>
-            <button className='nav-item' onClick={logInGuest}> {/*this is going to be changed to a fetch call to ...?*/}
+            <button className='nav-item' onClick={logInGuest}>
                 <i className="fa-regular fa-user"></i>
                 <p>Guest Log In</p>
             </button>
