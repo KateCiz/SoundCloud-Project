@@ -16,10 +16,10 @@
     "redux-thunk": "^2.4.1"
   },
   "scripts": {
-    // "start": "react-scripts start",
-    // "build": "react-scripts build",
-    // "test": "react-scripts test",
-    // "eject": "react-scripts eject"
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject",
     "install": "npm --prefix backend install backend",
     "dev:backend": "npm install --prefix backend start",
     "sequelize": "npm run --prefix backend sequelize",
