@@ -113,6 +113,9 @@ const albumReducer = (state = initialState, action) => {
             newState[action.album.id] = action.album;
             return newState;
         case DELETE_ALBUM:
+            console.log('original', newState);
+            console.log('id', action.albumId);
+            console.log('key-value', newState[action.albumId]);
             delete newState[action.albumId];
             return newState;
         default: 

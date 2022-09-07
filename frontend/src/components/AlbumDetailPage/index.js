@@ -3,7 +3,7 @@ import { useParams, useHistory } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import EditAlbumForm from '../EditAlbumForm';
 import CreateSongForm from '../CreateSongForm';
-import { getAlbums, getOneAlbum, removeAlbum } from '../../store/album';
+import { getOneAlbum, removeAlbum } from '../../store/album';
 
 const AlbumDetailPage = () => {
   const dispatch= useDispatch();
@@ -11,7 +11,6 @@ const AlbumDetailPage = () => {
   
   const { albumId } = useParams();
   const album = useSelector(state => state.album[albumId]); //is this line necessary???
-  const  albums = Object.values(useSelector(state => state.album));
   const [showEditAlbumForm, setShowEditAlbumForm] = useState(false);
   const [showCreateSongForm, setShowCreateSongForm] = useState(false);
   const loggedInUser = useSelector(state => state.session.user);
@@ -48,8 +47,12 @@ if(showCreateSongForm && album.userId === loggedInUser?.id){
 }
 
 const deleteAlbum = (albumId) => {
-  dispatch(removeAlbum(albumId))
-  history.push('/albums')
+  return (
+    dispatch(removeAlbum(albumId))
+    .then(() => {
+      history.push('/albums')
+    })
+  );
 };
 
     return (
