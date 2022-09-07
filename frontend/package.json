@@ -1,48 +1,29 @@
 {
-  "name": "frontend",
-  "version": "0.1.0",
-  "private": true,
+  "name": "2-day",
+  "version": "1.0.0",
+  "description": "# `SoundCloud Project`",
+  "main": "index.js",
   "dependencies": {
-    "@testing-library/jest-dom": "^5.16.5",
-    "@testing-library/react": "^11.2.7",
-    "@testing-library/user-event": "^12.8.3",
-    "js-cookie": "^3.0.1",
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0",
-    "react-redux": "^7.2.8",
-    "react-router-dom": "^5.3.3",
-    "react-scripts": "5.0.1",
-    "redux": "^4.2.0",
-    "redux-thunk": "^2.4.1"
+    "bcryptjs": "^2.4.3"
   },
+  "devDependencies": {},
   "scripts": {
-    "start": "react-scripts start npm start --prefix backend",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject",
     "install": "npm --prefix backend install backend",
     "dev:backend": "npm install --prefix backend start",
     "sequelize": "npm run --prefix backend sequelize",
     "sequelize-cli": "npm run --prefix backend sequelize-cli",
+    "start": "npm start --prefix backend",
     "heroku-rebuild": "heroku run npm run sequelize db:seed:undo:all && heroku run npm run sequelize db:migrate:undo:all && heroku run npm run sequelize db:migrate && heroku run npm run sequelize db:seed:all"
   },
-  "eslintConfig": {
-    "extends": "react-app"
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/KateCiz/SoundCloud-Project.git"
   },
-  "browserslist": {
-    "production": [
-      ">0.2%",
-      "not dead",
-      "not op_mini all"
-    ],
-    "development": [
-      "last 1 chrome version",
-      "last 1 firefox version",
-      "last 1 safari version"
-    ]
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/KateCiz/SoundCloud-Project/issues"
   },
-  "devDependencies": {
-    "redux-logger": "^3.0.6"
-  },
-  "proxy": "http://localhost:8000"
+  "homepage": "https://github.com/KateCiz/SoundCloud-Project#readme"
 }
