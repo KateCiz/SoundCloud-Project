@@ -2,6 +2,7 @@ import { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { useHistory} from 'react-router-dom';
 import { getSongs } from '../../store/song';
+import './AllSongsPage.css';
 
 const SongsPage = () => {
 
@@ -29,13 +30,13 @@ const goToDetails = (songId) => {
                 return (
                   <li key={song.id}>
                   <div onClick={() => goToDetails(song.id)}>
-                      <div 
-                          className='song-list-image' 
-                          style={{ backgroundImage: `url('${song.previewImage}')` }}>
-                          <div>
-                              <p className='song-list-title'>{song.title}</p>
-                          </div>
-                      </div>
+                    <div 
+                      className='song-list-image' 
+                      style={{ backgroundImage: `url('${song.previewImage}')` }}>
+                    </div>
+                    <div>
+                      <p className='song-list-title'>{song.title}</p>
+                    </div>
                   </div>
                   </li>
                   );
