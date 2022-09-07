@@ -17,6 +17,7 @@ if (!albums) {
   return null;
 }
 
+
 const goToDetails = (albumId) => {
   console.log('albumId', albumId);
   history.push(`/albums/${albumId}`);

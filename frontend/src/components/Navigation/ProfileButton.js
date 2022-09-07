@@ -41,7 +41,7 @@ function ProfileButton({user}) {
                 <i className="fa-solid fa-user"></i>
             </button>
             {isMenuShown && (
-                <ul>
+                <ul className='profile-dropdown'>
                     {/* <li>{user.user.firstName}</li> */}
                     <li>{user.email}</li>
                     <li>
