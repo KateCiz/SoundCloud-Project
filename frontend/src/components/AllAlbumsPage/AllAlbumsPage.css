@@ -1,10 +1,16 @@
-.song-detail {
-    display: flex;
+.album-detail {
+    display: inline-flex;
     justify-content: center;
     width: 80%;
     margin: auto;
 }
-.song-list-image {
+
+.album-list-item {
+    display: inline-flex;
+    background-color:  rgb(199, 193, 193);
+}
+
+.album-list-image {
     height: 150px;
     width: 150px;
     background-size: cover;
@@ -13,14 +19,17 @@
 }
 
 
-.song-list-item {
+.album-detail-info {
     display: inline-flex;
     background-color: rgb(199, 193, 193);
     width: 100%;
-    font-size: 30px;
-
 }
 
 li{
     list-style: none;   
+}
+
+.album-list-title {
+    font-size: 30px;
+    font-weight: bold;
 }

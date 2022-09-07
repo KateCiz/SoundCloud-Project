@@ -3,6 +3,7 @@ import { useParams, useHistory } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import EditSongForm from '../EditSongForm';
 import { getOneSong, removeSong } from '../../store/song';
+import './SongDetailPage.css';
 
 const SongDetailPage = () => {
     const dispatch= useDispatch();
@@ -45,18 +46,17 @@ const SongDetailPage = () => {
       }
 
         return (
-            <div className="song-detail">
-              <div className={`song-detail-image-background`}>
-            <div
-              className="song-detail-image"
-              style={{ backgroundImage: `url('${song.previewImage}')` }}
-            >
+          <div className="song-detail">
+            <div className="song-detail-info">
+              <div 
+                className='song-detail-image'
+                style={{ backgroundImage: `url('${song?.previewImage}')` }}>
+              </div>
                 <ul>
-                    <li>{song.title}</li>
-                    {console.log('detail song', song)}
-                    <li>{song?.Artist?.username}</li>
-                    <li>{song.description}</li>
-                    <li>{song.url}</li> 
+                    <li id='song-title'>{song.title}</li>
+                    <li id='song-artist'>{song?.Artist?.username}</li>
+                    <li id='song-description'>{`Description: ${song.description}`}</li>
+                    <li id='song-url'>{song.url}</li> 
                 </ul>
             </div>
             <div>
@@ -68,7 +68,6 @@ const SongDetailPage = () => {
               )}
             </div>
     
-          </div>
           {otherInfo}
         </div>
       );

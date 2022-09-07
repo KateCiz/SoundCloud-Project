@@ -2,6 +2,7 @@ import { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { useHistory} from 'react-router-dom';
 import { getAlbums } from '../../store/album';
+import './AllAlbumsPage.css';
 
 const AlbumsPage = () => {
 
@@ -29,13 +30,15 @@ const goToDetails = (albumId) => {
               {albums && albums.map(album => {
                 return (
                 <li key={album.id}>
-                  <div onClick={() => goToDetails(album.id)}>
+                  <div 
+                    className='album-list-item'
+                    onClick={() => goToDetails(album.id)}>
                       <div 
                           className='album-list-image' 
                           style={{ backgroundImage: `url('${album.previewImage}')` }}>
-                          <div>
-                              <p className='album-list-title'>{album.title}</p>
-                          </div>
+                      </div>
+                      <div>
+                          <p className='album-list-title'>{album.title}</p>
                       </div>
                   </div>
                 </li>
