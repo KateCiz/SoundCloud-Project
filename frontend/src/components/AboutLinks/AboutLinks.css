@@ -1,0 +1,14 @@
+footer {
+    background-color: #333;
+    display: flex;
+    justify-content: center;
+    margin: 20px;
+}
+
+.about-links-text {
+    font-size: 15px;
+    color: #ccc;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    text-decoration: none;
+}
+

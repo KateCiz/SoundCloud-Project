@@ -10,6 +10,7 @@ import SongsPage from './components/AllSongsPage';
 import SongDetailPage from './components/SongDetailPage';
 import AlbumsPage from './components/AllAlbumsPage';
 import AlbumDetailPage from './components/AlbumDetailPage';
+import AboutLinks from './components/AboutLinks';
 
 function App() {
   const dispatch = useDispatch();
@@ -47,6 +48,7 @@ function App() {
           </Route>
         </Switch>
       )}
+      <AboutLinks isLoaded={isLoaded}/>
     </>
   );
 }
