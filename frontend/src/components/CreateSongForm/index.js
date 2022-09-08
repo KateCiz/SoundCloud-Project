@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import * as songActions from '../../store/song';
 import { Redirect, useParams, useHistory } from 'react-router-dom';
 
-function CreateSongForm({ album }) {
+function CreateSongForm({ album, hideForm }) {
     const dispatch = useDispatch();
     const history = useHistory();
     const { albumId } = useParams();
@@ -18,8 +18,11 @@ function CreateSongForm({ album }) {
     if (loggedInUser?.id !== album?.userId) return (
         <Redirect to={`/albums/${albumId}`} />
       );
-  
 
+    const handleClickAway = (e) => {
+        e.preventDefault();
+        hideForm();
+    };
 
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -79,6 +82,7 @@ function CreateSongForm({ album }) {
                     required />
             </label>
             <button type="submit" disabled={errors.length > 0}>Create Song</button>
+            <button type="button" onClick={handleClickAway}>Cancel</button>
         </form>
     )
 };

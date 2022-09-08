@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { createNewAlbum } from '../../store/album';
 import { Redirect, useHistory } from 'react-router-dom';
 
-function CreateAlbumForm() {
+function CreateAlbumForm({ hideForm }) {
     const dispatch = useDispatch();
     const history = useHistory();
 
@@ -17,6 +17,11 @@ function CreateAlbumForm() {
         <Redirect to='/'/>
       )
   
+
+      const handleClickAway = (e) => {
+        e.preventDefault();
+        hideForm();
+      };
 
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -68,6 +73,7 @@ function CreateAlbumForm() {
                     required />
             </label>
             <button type="submit" disabled={errors.length > 0}>Create Album</button>
+            <button type="button" onClick={handleClickAway}>Cancel</button>
         </form>
     )
 };
