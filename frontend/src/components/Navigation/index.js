@@ -38,6 +38,7 @@ function Navigation() {
         <nav id='navigation-bar'>
         {console.log(loggedInUser)}
         <ul id='all-nav-items'>
+            <p className='nav-text nav-item'>SoundCloud Project</p>
             <NavLink className='nav-text nav-item' to='/'>Home</NavLink>
             <NavLink className='nav-text nav-item' to='/songs'>Songs</NavLink>
             <NavLink className='nav-text nav-item' to='/albums'>Albums</NavLink>
