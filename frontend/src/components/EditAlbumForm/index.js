@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { useParams, useHistory } from 'react-router-dom';
 import { editCurrentAlbum, getOneAlbum } from '../../store/album';
+import { getSongs } from '../../store/song';
 
 const EditAlbumForm = ({ album, hideForm }) => {
   const dispatch = useDispatch();
@@ -32,6 +33,9 @@ const EditAlbumForm = ({ album, hideForm }) => {
 
     if (updatedAlbum) {
       dispatch(getOneAlbum(albumId))
+      .then(() => {
+        dispatch(getSongs())
+      })
       .then(() => {
         history.push(`/albums/${albumId}`)
       });

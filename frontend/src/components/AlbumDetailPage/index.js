@@ -5,6 +5,7 @@ import EditAlbumForm from '../EditAlbumForm';
 import CreateSongForm from '../CreateSongForm';
 import { getOneAlbum, removeAlbum } from '../../store/album';
 import './AlbumDetailPage.css';
+import { removeSong } from '../../store/song';
 
 const AlbumDetailPage = () => {
   const dispatch= useDispatch();
@@ -53,6 +54,9 @@ if (showEditAlbumForm && album.userId === loggedInUser?.id){
     }
     
   const getRidOfAlbum = (albumId) => {
+    album?.Songs?.map(song => {
+      return dispatch(removeSong(song.id))
+    });
   return (
     dispatch(removeAlbum(albumId))
     .then(() => {
