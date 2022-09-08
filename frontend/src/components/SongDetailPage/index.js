@@ -59,7 +59,7 @@ const SongDetailPage = () => {
                     <li id='song-url'>{song.url}</li> 
                 </ul>
             </div>
-            <div>
+            <div className='song-detail-buttons'>
               {(!showEditSongForm && song.userId === loggedInUser?.id) && (
                 <button onClick={() => setShowEditSongForm(true)}>Edit</button>
               )}
