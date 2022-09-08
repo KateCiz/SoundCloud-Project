@@ -7,7 +7,10 @@
 
 .album-list-item {
     display: inline-flex;
-    background-color:  rgb(199, 193, 193);
+    background-color:  rgb(71, 71, 71);
+    width: 500px;
+    color: #ccc;
+    margin-top: 20px;
 }
 
 .album-list-image {
@@ -16,13 +19,6 @@
     background-size: cover;
     background-repeat: no-repeat;
     background-position: 50% 30%;
-}
-
-
-.album-detail-info {
-    display: inline-flex;
-    background-color: rgb(199, 193, 193);
-    width: 100%;
 }
 
 li{

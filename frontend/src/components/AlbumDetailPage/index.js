@@ -83,21 +83,19 @@ if (showEditAlbumForm && album.userId === loggedInUser?.id){
                     )
                   })}
                 </ul>
-            <div>
+          </div>
+
+            <div className='album-detail-buttons'>
               {(!showEditAlbumForm && album.userId === loggedInUser?.id) && (
                 <button onClick={() => setShowEditAlbumForm(true)}>Edit</button>
               )}
               {(album.userId === loggedInUser?.id) && (
                 <button onClick={() => (getRidOfAlbum(albumId))}>Delete</button>
               )}
-            </div>
-            <div>
             {(!showCreateSongForm && album.userId === loggedInUser?.id) && (
                 <button onClick={() => setShowCreateSongForm(true)}>Add Song</button>
               )}
             </div>
-    
-          </div>
           <div>
           {editForm}
           </div>

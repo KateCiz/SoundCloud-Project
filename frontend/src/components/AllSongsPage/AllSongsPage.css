@@ -16,12 +16,12 @@
 .song-list-item {
     display: inline-flex;
     justify-content: left;
-    background-color: rgb(199, 193, 193);
+    background-color: rgb(71, 71, 71);
+    color: #ccc;
+    margin-top: 20px;
     width: 500px;
     font-size: 30px;
     flex-shrink: 0;
-    border-radius: 3px;
-
 }
 
 li{
