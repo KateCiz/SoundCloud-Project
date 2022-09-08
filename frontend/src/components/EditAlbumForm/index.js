@@ -1,10 +1,11 @@
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { useParams } from 'react-router-dom';
-import { editCurrentAlbum } from '../../store/album';
+import { useParams, useHistory } from 'react-router-dom';
+import { editCurrentAlbum, getOneAlbum } from '../../store/album';
 
 const EditAlbumForm = ({ album, hideForm }) => {
   const dispatch = useDispatch();
+  const history = useHistory();
   const { albumId } = useParams();
 
   const [title, setTitle] = useState(album.title);
@@ -30,6 +31,10 @@ const EditAlbumForm = ({ album, hideForm }) => {
         });
 
     if (updatedAlbum) {
+      dispatch(getOneAlbum(albumId))
+      .then(() => {
+        history.push(`/albums/${albumId}`)
+      });
       hideForm();
     }
   };

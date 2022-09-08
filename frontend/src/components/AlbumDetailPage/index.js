@@ -23,6 +23,11 @@ const AlbumDetailPage = () => {
 	  dispatch (getOneAlbum(albumId));
   }, [albumId, dispatch]);
 
+  useEffect(() => {
+    setShowCreateSongForm(false);
+	  dispatch (getOneAlbum(albumId));
+  }, [albumId, dispatch]);
+
 
   if (!album) {
     return null;
