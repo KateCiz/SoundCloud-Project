@@ -81,7 +81,7 @@ const EditSongForm = ({ song, hideForm }) => {
                 />
             </label>
         
-        <button type="submit">Update Song</button>
+        <button type="submit" disabled={errors.length > 0}>Update Song</button>
         <button type="button" onClick={handleClickAway}>Cancel</button>
       </form>
     </section>

@@ -79,7 +79,7 @@ const EditAlbumForm = ({ album, hideForm }) => {
                 />
             </label>
         
-        <button type="submit">Update Album</button>
+        <button type="submit" disabled={errors.length > 0}>Update Album</button>
         <button type="button" onClick={handleClickAway}>Cancel</button>
       </form>
     </section>
