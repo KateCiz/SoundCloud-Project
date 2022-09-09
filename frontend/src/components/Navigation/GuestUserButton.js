@@ -8,9 +8,9 @@ function GuestUserButton() {
     const [errors, setErrors] = useState([]);
 
 
-    const email = 'guest@user.io';
+    const email = 'demo@user.io';
     const password = 'password';
-    // guest id === 5
+    // guest id === 1
 
     const logInGuest = (e) => {
         return dispatch(sessionActions.loginSessionUser(email, password))

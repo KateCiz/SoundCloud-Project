@@ -17,26 +17,15 @@ function Navigation() {
             </>
         )
     }
-    else if(loggedInUser?.id === 5)(
-        sessionNavLinks = (
-             <>
-                <NavLink className='nav-text nav-item' to='/signup'>Sign Up</NavLink>
-                <ProfileButton user={loggedInUser} />
-                {console.log(loggedInUser)}
-             </>
-         )
-    )
     else if(loggedInUser?.id)(
         sessionNavLinks = (
              <>
                  <ProfileButton user={loggedInUser} />
-                 {console.log(loggedInUser)}
              </>
          )
     )
     return (
         <nav id='navigation-bar'>
-        {console.log(loggedInUser)}
         <ul id='all-nav-items'>
             <p className='nav-text nav-item'>SoundCloud Project</p>
             <NavLink className='nav-text nav-item' to='/'>Home</NavLink>
