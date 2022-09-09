@@ -17,7 +17,6 @@ function CreateAlbumForm({ hideForm }) {
         <Redirect to='/'/>
       )
   
-
       const handleClickAway = (e) => {
         e.preventDefault();
         hideForm();

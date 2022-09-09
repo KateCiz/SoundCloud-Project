@@ -13,6 +13,7 @@ const EditAlbumForm = ({ album, hideForm }) => {
   const [description, setDescription] = useState(album.description);
   const [previewImage, setPreviewImage] = useState(album.previewImage);
   const [errors, setErrors] = useState([]);
+  const [disabled, setDisabled] = useState([]);
 
 
   const handleSubmit = async (e) => {
@@ -28,7 +29,15 @@ const EditAlbumForm = ({ album, hideForm }) => {
     let updatedAlbum = await dispatch(editCurrentAlbum(albumId, albumEdited))
         .catch(async (res) => {
             const data = await res.json();
-            if (data && data.errors) setErrors(data.errors);
+            if (data && data.errors){
+              let newErrors = Object.values(data.errors);
+              if(newErrors.length > 0){
+                setDisabled(true);
+              } else {
+                setDisabled(false);
+              }
+            setErrors(newErrors);
+            }
         });
 
     if (updatedAlbum) {
@@ -59,7 +68,7 @@ const EditAlbumForm = ({ album, hideForm }) => {
                 <input
                     type="text"
                     value={title}
-                    onChange={(e) => setTitle(e.target.value)} 
+                    onChange={(e) => {setDisabled(false); setTitle(e.target.value)}}
                 />
             </label>
             <label>
@@ -67,7 +76,7 @@ const EditAlbumForm = ({ album, hideForm }) => {
                 <input
                     type="text"
                     value={description}
-                    onChange={(e) => setDescription(e.target.value)} 
+                    onChange={(e) => {setDisabled(false); setDescription(e.target.value)}}
                 />
             </label>
             <label>
@@ -75,11 +84,11 @@ const EditAlbumForm = ({ album, hideForm }) => {
                 <input
                     type="text"
                     value={previewImage}
-                    onChange={(e) => setPreviewImage(e.target.value)} 
+                    onChange={(e) => {setDisabled(false); setPreviewImage(e.target.value)}} 
                 />
             </label>
         
-        <button type="submit" disabled={errors.length > 0}>Update Album</button>
+        <button type="submit" disabled={disabled}>Update Album</button>
         <button type="button" onClick={handleClickAway}>Cancel</button>
       </form>
     </section>

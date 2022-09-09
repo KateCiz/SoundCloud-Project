@@ -13,6 +13,8 @@ const EditSongForm = ({ song, hideForm }) => {
     const [url, setUrl] = useState(song.url);
     const [previewImage, setPreviewImage] = useState(song.previewImage);
     const [errors, setErrors] = useState([]);
+    const [disabled, setDisabled] = useState(false);
+
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -28,7 +30,15 @@ const EditSongForm = ({ song, hideForm }) => {
     let updatedSong = await dispatch(editCurrentSong(songId, songEdited))
         .catch(async (res) => {
             const data = await res.json();
-            if (data && data.errors) setErrors(data.errors);
+            if (data && data.errors){
+              let newErrors = Object.values(data.errors);
+              if(newErrors.length > 0){
+                setDisabled(true);
+              } else {
+                setDisabled(false);
+              }
+              setErrors(newErrors);
+              }
         });
 
     if (updatedSong) {
@@ -46,14 +56,14 @@ const EditSongForm = ({ song, hideForm }) => {
     <section className="edit-song-form">
       <form onSubmit={handleSubmit}>
       <ul>
-                {errors.map((error, idx) => <li key={idx}>{error}</li>)}
+            {errors.map((error, idx) => <li key={idx}>{error}</li>)}
             </ul>
             <label>
                 Title: 
                 <input
                     type="text"
                     value={title}
-                    onChange={(e) => setTitle(e.target.value)} 
+                    onChange={(e) => {setDisabled(false); setTitle(e.target.value)}} 
                 />
             </label>
             <label>
@@ -61,7 +71,7 @@ const EditSongForm = ({ song, hideForm }) => {
                 <input
                     type="text"
                     value={description}
-                    onChange={(e) => setDescription(e.target.value)} 
+                    onChange={(e) => {setDisabled(false); setDescription(e.target.value)}}
                 />
             </label>
             <label>
@@ -69,7 +79,7 @@ const EditSongForm = ({ song, hideForm }) => {
                 <input
                     type="text"
                     value={url}
-                    onChange={(e) => setUrl(e.target.value)} 
+                    onChange={(e) => {setDisabled(false); setUrl(e.target.value)}} 
                 />
             </label>
             <label>
@@ -77,11 +87,11 @@ const EditSongForm = ({ song, hideForm }) => {
                 <input
                     type="text"
                     value={previewImage}
-                    onChange={(e) => setPreviewImage(e.target.value)} 
+                    onChange={(e) => {setDisabled(false); setPreviewImage(e.target.value)}} 
                 />
             </label>
         
-        <button type="submit" disabled={errors.length > 0}>Update Song</button>
+        <button type="submit" disabled={disabled}>Update Song</button>
         <button type="button" onClick={handleClickAway}>Cancel</button>
       </form>
     </section>
