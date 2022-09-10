@@ -4,9 +4,10 @@ This project is an example of some key functionality and styling associated with
 
 ## Set Up
 1) Clone the repo
-2) Create an .env file from the .example-env (make sure this matches the proxy in your frontend package.json file after step 3)
+2) Create an .env file from the .example-env and create a JWT_SECRET
 3) run npm install from the root directory
-4) 
+4) open two terminals, cd into the backend on one and the frontend on the other
+5) run npm start on both terminals
 
 ## Current Availible Functionality:
 

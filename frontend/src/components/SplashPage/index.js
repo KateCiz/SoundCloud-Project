@@ -48,8 +48,7 @@ function SplashPage(){
                     {/* <input className='splash-buttons-content' type='search'></input> */}
                     {/* <button className='splash-buttons-content'>Search</button>
                     <p className='splash-buttons-content'> OR </p> */}
-                    {loggedInUser?.id !== 5 && 
-                    <button className='splash-buttons-content' onClick={() => setShowCreateAlbumForm(true)}>Create An Album</button>}
+                    {<button className='splash-buttons-content' onClick={() => setShowCreateAlbumForm(true)}>Create An Album</button>}
                 </div>
                 {showCreateAlbumForm && otherInfo}
             </div>

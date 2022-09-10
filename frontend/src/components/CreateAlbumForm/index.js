@@ -33,6 +33,8 @@ function CreateAlbumForm({ hideForm }) {
         };
         
         history.push(`/albums`);
+        
+        hideForm();
 
         return dispatch(createNewAlbum(album))
           .catch(async (res) => {
