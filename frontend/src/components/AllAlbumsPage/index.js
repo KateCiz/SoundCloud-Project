@@ -49,8 +49,8 @@ const goToDetails = (albumId) => {
 
   return (
       <div className="album-detail">
-        {content}
           <ul>
+            <li>{content}</li>
               {albums && albums.map(album => {
                 return (
                 <li key={album.id}>

@@ -45,7 +45,7 @@ This project is an example of some key functionality and styling associated with
 
 ## All Albums
 
-<img src=https://res.cloudinary.com/dymmlu1dw/image/upload/v1662834294/soundcloud/AllAlbumsSoundCloud1_ee7666.png>
+<img src=https://res.cloudinary.com/dymmlu1dw/image/upload/v1662844927/soundcloud/AllAlbumsSoundCloud3_kafdy0.png>
 
 ## Song Details
 
