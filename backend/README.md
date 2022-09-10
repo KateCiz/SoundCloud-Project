@@ -7,7 +7,7 @@
 ## 
 Soundcloud Database Schema
 
-<img src= https://res.cloudinary.com/dymmlu1dw/image/upload/v1658878520/SoundCloudProjectDB_3_dncj1z.jpg>
+<img src= https://res.cloudinary.com/dymmlu1dw/image/upload/v1662833503/soundcloud/SoundCloudProjectDB_4_mnbjpm.jpg>
 
 ## API Documentation
 
