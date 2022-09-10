@@ -2,6 +2,10 @@
 
 This project is an example of some key functionality and styling associated with an application such as SoundCloud.
 
+## Set Up
+1) Clone the repo
+2) run npm install from the root directory
+
 ## Current Availible Functionality:
 
 *CRUD === CREATE READ UPDATE DELETE*
