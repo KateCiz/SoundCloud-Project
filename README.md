@@ -7,7 +7,10 @@ This project is an example of some key functionality and styling associated with
 2) Create an .env file from the .example-env and create a JWT_SECRET
 3) run npm install from the root directory
 4) open two terminals, cd into the backend on one and the frontend on the other
-5) run npm start on both terminals
+5) run npm install in both terminals
+6) in the backend terminal run npx sequelize db:migrate 
+7) in the backend terminal run npx sequelize db:seed:all
+8) run npm start in both terminals after database migrate and seeding is successful to start the servers 
 
 ## Current Availible Functionality:
 
