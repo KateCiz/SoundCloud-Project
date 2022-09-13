@@ -1,4 +1,3 @@
-import React from 'react';
 import { Modal } from '../../context/Modal';
 import EditSongForm from '../EditSongForm';
 
