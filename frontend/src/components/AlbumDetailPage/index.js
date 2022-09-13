@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { useParams, useHistory } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
-import EditAlbumForm from '../EditAlbumForm';
+import EditAlbumModal from '../EditAlbumModal';
 import CreateSongForm from '../CreateSongForm';
 import { getOneAlbum, removeAlbum } from '../../store/album';
 import './AlbumDetailPage.css';
@@ -37,7 +37,7 @@ console.log("album songs", album.Songs);
 
 if (showEditAlbumForm && album.userId === loggedInUser?.id){
   editForm = (
-    <EditAlbumForm 
+    <EditAlbumModal 
     album={album} 
     hideForm={() => setShowEditAlbumForm(false)} 
     />
