@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import './SplashPage.css';
 import { getSongs } from '../../store/song';
-import CreateAlbumForm from '../CreateAlbumForm';
+import AddAlbumModal from '../AddAlbumModal';
 
 
 function SplashPage(){
@@ -17,7 +17,7 @@ function SplashPage(){
     });
 
     let otherInfo = (
-          <CreateAlbumForm 
+          <AddAlbumModal 
             hideForm={() => setShowCreateAlbumForm(false)} 
           />
         );

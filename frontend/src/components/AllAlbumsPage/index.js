@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { useHistory} from 'react-router-dom';
 import { getAlbums } from '../../store/album';
-import CreateAlbumForm from '../CreateAlbumForm';
+import AddAlbumModal from '../AddAlbumModal';
 import './AllAlbumsPage.css';
 
 const AlbumsPage = () => {
@@ -14,7 +14,7 @@ const AlbumsPage = () => {
   const history = useHistory();
   let content;
   let otherInfo = (
-    <CreateAlbumForm 
+    <AddAlbumModal 
       hideForm={() => setShowCreateAlbumForm(false)} 
     />
   );
