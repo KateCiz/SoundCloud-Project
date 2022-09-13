@@ -12,7 +12,7 @@ const AlbumDetailPage = () => {
   const history = useHistory();
   
   const { albumId } = useParams();
-  const album = useSelector(state => state.album[albumId]); //is this line necessary???
+  const album = useSelector(state => state.album[albumId]);
   const [showEditAlbumForm, setShowEditAlbumForm] = useState(false);
   const [showCreateSongForm, setShowCreateSongForm] = useState(false);
   const loggedInUser = useSelector(state => state.session.user);
