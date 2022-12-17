@@ -4,9 +4,10 @@
   "description": "# `SoundCloud Project`",
   "main": "index.js",
   "dependencies": {
-    "bcryptjs": "^2.4.3"
+    "bcryptjs": "^2.4.3",
+    "react-wavesurfer.js": "^0.0.8",
+    "wavesurfer.js": "^6.2.0"
   },
-  "devDependencies": {},
   "scripts": {
     "heroku-postbuild": "npm run build --prefix frontend",
     "install": "npm --prefix backend install backend && npm --prefix frontend install frontend",

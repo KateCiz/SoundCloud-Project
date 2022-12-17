@@ -59,9 +59,10 @@ const SongDetailPage = () => {
                     <li id='song-artist'>{song?.Artist?.username}</li>
                     <li id='song-description'>{`Description: ${song.description}`}</li>
                     <li id='song-url'>
-                       <audio
-                       controls
-                       src={song.url}>{song.url}</audio>
+                        <audio
+                          controls
+                          src={song.url}>{song.url}
+                        </audio>
                     </li> 
                 </ul>
             </div>

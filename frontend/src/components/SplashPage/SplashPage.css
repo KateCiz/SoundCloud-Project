@@ -1,8 +1,8 @@
 #top-splash-image-div {
     margin:auto;
     width: 80%;
-    height: 300px;
-    background-image: url(https://res.cloudinary.com/dymmlu1dw/image/upload/v1661823790/soundcloud/pexels-andrea-piacquadio-3800507_oghljx.jpg);
+    height: 500px;
+    background-image: url(https://res.cloudinary.com/dymmlu1dw/image/upload/v1661817134/soundcloud/pexels-andrea-piacquadio-813940_orqq1x.jpg);
     background-size: cover;
     background-repeat: no-repeat;
     background-position: 50% 30%;
@@ -11,7 +11,7 @@
 #top-logged-in-splash-image-div {
     margin:auto;
     width: 80%;
-    height: 300px;
+    height: 500px;
     background-image: url(https://res.cloudinary.com/dymmlu1dw/image/upload/v1661992780/soundcloud/pexels-april-studio-7745126_jcdilb.jpg);
     background-size: cover;
     background-repeat: no-repeat;
@@ -37,7 +37,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    margin: 5% auto 5% auto;
+    margin: 2% auto 2% auto;
 }
 
 .splash-buttons-content {
