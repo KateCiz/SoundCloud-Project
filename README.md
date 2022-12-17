@@ -2,6 +2,10 @@
 
 This project is an example of some key functionality and styling associated with an application such as SoundCloud.
 
+
+## Live site
+[Open SoundCloud-Project](https://soundcloud-project-ov95.onrender.com/)
+
 ## Set Up
 1) Clone the repo
 2) Create an .env file from the .example-env and create a JWT_SECRET
