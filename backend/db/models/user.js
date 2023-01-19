@@ -51,8 +51,8 @@ module.exports = (sequelize, DataTypes) => {
 
     static associate(models) {
       User.hasMany(models.Album, {foreignKey: 'userId', onDelete: 'cascade', hooks: true })
-      User.hasMany(models.Comment, {foreignKey: 'userId', onDelete: 'cascade', hooks: true})
-      User.hasMany(models.Playlist, {foreignKey: 'userId', onDelete: 'cascade', hooks: true})
+      User.hasMany(models.Comment, {foreignKey: 'userId', onDelete: 'cascade', hooks: true })
+      User.hasMany(models.Playlist, {foreignKey: 'userId', onDelete: 'cascade', hooks: true })
       User.hasMany(models.Song, {foreignKey: 'userId', onDelete: 'cascade', hooks: true })
     }
   }

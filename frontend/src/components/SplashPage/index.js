@@ -27,6 +27,8 @@ function SplashPage(){
         content = (
             <div className='splash-content'>
                 <div id="top-splash-image-div">
+                    <p className='guest-splash-photo-text1'>Discover</p>
+                    <p className='guest-splash-photo-text2'>More</p>
                 </div>
                 {/* <div id='splash-buttons'> */}
                     {/* <input className='splash-buttons-content' type='search'></input>
@@ -43,6 +45,7 @@ function SplashPage(){
         content = (
             <div className='splash-content'>
                 <div id="top-logged-in-splash-image-div"> 
+                    <p className='loggedin-splash-photo-text1'>Listen to the beat</p>
                 </div>
                 <div id='splash-buttons'>
                     {/* <input className='splash-buttons-content' type='search'></input> */}

@@ -33,6 +33,14 @@ module.exports = {
       description: "Never give up (this song is actually Lifelike by AlexiAction)",
       url: "https://res.cloudinary.com/dymmlu1dw/video/upload/v1671303634/soundcloud/lifelike-126735_ruye9n.mp3",
       previewImage: "https://res.cloudinary.com/dymmlu1dw/image/upload/v1662238154/soundcloud/pexels-alex-green-5700184_wcty9r.jpg"
+    },
+    {
+      userId: 2,
+      albumId: 2,
+      title: "Lunch Break",
+      description: "Computers need electricity, humans need food (this song is actually The Beat of Nature by Olexy)",
+      url: "https://res.cloudinary.com/dymmlu1dw/video/upload/v1671303648/soundcloud/the-beat-of-nature-122841_gsctct.mp3",
+      previewImage: "https://res.cloudinary.com/dymmlu1dw/image/upload/v1662237740/soundcloud/pexels-roman-odintsov-4958773_a0q7su.jpg"
     }
    ])
   },

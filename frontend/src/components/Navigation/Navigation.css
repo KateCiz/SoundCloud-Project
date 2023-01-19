@@ -1,5 +1,11 @@
 #navigation-bar{
     background-color: #333;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: fixed;
+    top: 0px;
+    width: 100%;
 }
 
 .nav-text {
@@ -8,11 +14,23 @@
     font-weight: bold;
 }
 
+.nav-header {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0px 10px 0px 10px;
+    color: #ccc;
+    font-size: large;
+    font-weight: bold;
+    text-decoration: none;
+}
+
 .nav-item {
     display: inline-flex;
     justify-content: center;
     align-items: center;
     margin: 0px 10px 0px 10px;
+    text-decoration: none;
 }
 
 #all-nav-items {

@@ -16,14 +16,39 @@ module.exports = {
       body: "Yes! Awesome beats!"
     },
     {
+      userId: 1,
+      songId: "4",
+      body: "Sweet notes dude"
+    },
+    {
       userId: 2,
       songId: "1",
       body: "Mad vibes"
     },
     {
+      userId: 2,
+      songId: "2",
+      body: "Great beats"
+    },
+    {
+      userId: 3,
+      songId: "1",
+      body: "Best Song Ever!!!"
+    },
+    {
       userId: 3,
       songId: "2",
-      body: "Best Song Ever!!!"
+      body: "Chill"
+    },
+    {
+      userId: 3,
+      songId: "3",
+      body: "Groovy"
+    },
+    {
+      userId: 3,
+      songId: "4",
+      body: "Awesome"
     }
    ])
   },

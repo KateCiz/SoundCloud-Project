@@ -67,22 +67,21 @@ if (showEditAlbumForm && album.userId === loggedInUser?.id){
 
     return (
         <div className="album-detail">
-            <div
-              className="album-detail-info">
-            <div 
-              className='album-detail-image'
-              style={{ backgroundImage: `url('${album.previewImage}')` }}>
-            </div>
-                <ul>
-                    <li id='album-title' key={`${album.id}${album.title}`}>{album.title}</li>
-                    <li id='album-artist' key={`${album.id}${album?.Artist?.username}`}>{album?.Artist?.username}</li>
-                    <li id='album-songs' key={`${album.id}${album.description}`}>{`Description: ${album.description}`}</li>
-                  {album?.Songs?.map((song, idx) => {
-                    return (
-                      <li key={`${album.id}${song.id}`}>{`Song #${idx + 1}: ${song.title}`}</li>
-                    )
-                  })}
-                </ul>
+            <div className="album-detail-info">
+              <ul className='album-detail-ul'>
+                  <li id='album-title' key={`${album.id}${album.title}`}>{album.title}</li>
+                  <li id='album-artist' key={`${album.id}${album?.Artist?.username}`}>{album?.Artist?.username}</li>
+                  <li id='album-songs' key={`${album.id}${album.description}`}>{`Description: ${album.description}`}</li>
+                {album?.Songs?.map((song, idx) => {
+                  return (
+                    <li key={`${album.id}${song.id}`}>{`Song #${idx + 1}: ${song.title}`}</li>
+                  )
+                })}
+              </ul>
+              <div 
+                className='album-detail-image'
+                style={{ backgroundImage: `url('${album.previewImage}')` }}>
+              </div>
           </div>
 
             <div className='album-detail-buttons'>
