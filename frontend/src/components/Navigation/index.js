@@ -26,9 +26,8 @@ function Navigation() {
     )
     return (
         <nav id='navigation-bar'>
+            <NavLink className='nav-header' to='/'>SoundCloud Project</NavLink>
         <ul id='all-nav-items'>
-            <p className='nav-text nav-item'>SoundCloud Project</p>
-            <NavLink className='nav-text nav-item' to='/'>Home</NavLink>
             <NavLink className='nav-text nav-item' to='/songs'>Songs</NavLink>
             <NavLink className='nav-text nav-item' to='/albums'>Albums</NavLink>
             {sessionNavLinks}

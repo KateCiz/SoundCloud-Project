@@ -28,6 +28,7 @@ li{
 .album-list-title {
     font-size: 30px;
     font-weight: bold;
+    margin-left: 10px;
 }
 
 .all-albums-header {

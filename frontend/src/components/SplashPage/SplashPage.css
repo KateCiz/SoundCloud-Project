@@ -6,6 +6,9 @@
     background-size: cover;
     background-repeat: no-repeat;
     background-position: 50% 30%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 }
 
 #top-logged-in-splash-image-div {
@@ -16,6 +19,32 @@
     background-size: cover;
     background-repeat: no-repeat;
     background-position: 50% 50%;
+    display: flex;
+    align-items: center;
+}
+
+.guest-splash-photo-text1 {
+    margin-left: 100px;
+    font-size: 60px;
+    font-weight: bold;
+    color: black;
+    z-index: 10;
+}
+
+.guest-splash-photo-text2 {
+    margin-right: 100px;
+    font-size: 60px;
+    font-weight: bold;
+    color: black;
+    z-index: 10;
+}
+
+.loggedin-splash-photo-text1 {
+    margin-left: 100px;
+    font-size: 60px;
+    font-weight: bold;
+    color: black;
+    z-index: 10;
 }
 
 #splash-call-to-action {

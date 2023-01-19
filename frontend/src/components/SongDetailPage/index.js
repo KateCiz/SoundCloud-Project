@@ -50,21 +50,23 @@ const SongDetailPage = () => {
         return (
           <div className="song-detail">
             <div className="song-detail-info">
-              <div 
-                className='song-detail-image'
-                style={{ backgroundImage: `url('${song?.previewImage}')` }}>
-              </div>
-                <ul>
+              <div className='song-detail-text'>
+                <ul className='song-detail-ul'>
                     <li id='song-title'>{song.title}</li>
                     <li id='song-artist'>{song?.Artist?.username}</li>
                     <li id='song-description'>{`Description: ${song.description}`}</li>
-                    <li id='song-url'>
+                </ul>
+                <div id='song-url'>
                         <audio
                           controls
                           src={song.url}>{song.url}
                         </audio>
-                    </li> 
-                </ul>
+                    </div> 
+              </div>
+              <div 
+                className='song-detail-image'
+                style={{ backgroundImage: `url('${song?.previewImage}')` }}>
+              </div>
             </div>
             <div className='song-detail-buttons'>
               {(!showEditSongForm && song.userId === loggedInUser?.id) && (

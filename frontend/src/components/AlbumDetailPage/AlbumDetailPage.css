@@ -3,10 +3,11 @@
     justify-content: center;
     width: 80%;
     margin: auto;
+    margin-top: 70px;
 }
 .album-detail-image {
-    height: 150px;
-    width: 150px;
+    height: 300px;
+    width: 300px;
     background-size: cover;
     background-repeat: no-repeat;
     background-position: 50% 30%;
@@ -15,11 +16,16 @@
 
 .album-detail-info {
     display: inline-flex;
-    background-color: rgb(71, 71, 71);
+    background: linear-gradient(rgb(71, 71, 71), rgb(156, 152, 152));
     width: 100%;
     color: #ccc;
-    margin-top: 20px;
-    margin-right: 5px;
+    padding: 20px;
+    justify-content: space-between;
+}
+
+.album-detail-ul {
+    margin: 0px;
+    padding: 0px;
 }
 
 li{

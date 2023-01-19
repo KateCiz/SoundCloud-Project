@@ -1,8 +1,12 @@
 footer {
     background-color: #333;
     display: flex;
-    justify-content: center;
-    margin: 20px;
+    position: fixed;
+    flex-direction: row;
+    justify-content:  center;
+    align-self: center;
+    width: 100%;
+    bottom: 0;
 }
 
 .about-links-text {

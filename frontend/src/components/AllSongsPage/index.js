@@ -6,7 +6,7 @@ import './AllSongsPage.css';
 
 const SongsPage = () => {
 
-const  songs = Object.values(useSelector(state => state.song));
+const songs = Object.values(useSelector(state => state.song));
 const dispatch = useDispatch();
 const history = useHistory();
 
@@ -24,6 +24,7 @@ const goToDetails = (songId) => {
   history.push(`/songs/${songId}`);
 }
 
+
   return (
       <div className="song-detail">
           <ul>
@@ -37,8 +38,15 @@ const goToDetails = (songId) => {
                       className='song-list-image' 
                       style={{ backgroundImage: `url('${song.previewImage}')` }}>
                     </div>
-                    <div>
-                      <p className='song-list-title'>{song.title}</p>
+                    <div className='song-list-title-audio'>
+                      <div>
+                        <div className='song-list-title'>{song.title}</div>
+                      </div>
+                      <audio
+                        className='song-list-play'
+                        controls
+                        src={song.url}>{song.url}
+                      </audio>
                     </div>
                   </div>
                   </li>
@@ -47,22 +55,6 @@ const goToDetails = (songId) => {
           </ul>
       </div>
     );
+}
 
-
-
-
-
-  // WORKS!!!!!
-    // return (
-    //     <div className="song-detail">
-    //             {songs && (songs.map(song => {
-    //                return(         <div>
-    //                             {song?.title}
-    //                         </div>
-    //                );
-    //             }))}
-    //     </div>
-    //   );
-    };
-
-    export default SongsPage;
+export default SongsPage;

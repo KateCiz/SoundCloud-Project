@@ -24,6 +24,24 @@
     flex-shrink: 0;
 }
 
+.song-list-title-audio{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
 li{
     list-style: none;   
 }
+
+.song-list-title {
+    margin-bottom: 10px;
+}
+
+
+
+.song-list-play {
+    margin-left: 25px;
+}
+
