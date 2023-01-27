@@ -1,0 +1,113 @@
+/* Song Comment */
+
+.one-song-comment {
+    display: block;
+    color: #ff5500;
+    margin-top: 20px;
+}
+
+.comment-user-div {
+    display: flex;
+    align-items: center;
+}
+
+.comment-username {
+    font-size: 20px;
+}
+
+.comment-created {
+    /* margin-left: 10px; */
+}
+
+.delete-comment-btn {
+  background-color: #ffffff;
+  color: #ff5500;
+  border: 2px solid #ff5500;
+}
+
+.comment-user-image-div {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+}
+
+.comment-content-photo-div {
+    display: block;
+    align-items: center;
+}
+
+
+/* Album Comment */
+
+.one-album-comment {
+    display: block;
+    color: #7B424F;
+    margin-top: 20px;
+}
+
+/* Comment Form */
+
+.create-comment {
+    border: 0;
+    font-size: 20px;
+  }
+  
+  .create-comment-header {
+    color: rgb(71, 71, 71);
+    font-size: 30px;
+  }
+  
+  .create-comment-content {
+    display: block;
+    width: 60%;
+    height: 60px;
+    margin: 5px auto 10px auto;
+    padding-bottom: 5px;
+    font-size: 16px;
+    outline: none;
+    border: 1px solid rgb(71, 71, 71);
+    text-align: center;
+    overflow-wrap: break-word;
+  }
+
+  .create-comment-input {
+      display: block;
+      width: 60%;
+      margin: 5px auto 10px auto;
+      padding-bottom: 5px;
+      font-size: 16px;
+      outline: none;
+      border: 1px solid rgb(71, 71, 71);
+      border-radius: 100px;
+      text-align: center;
+    }
+  
+  .create-comment-label{
+      font-size: 20px;
+      margin: auto;
+      font-family: 'Times New Roman', Times, serif;
+  }
+  
+  .create-comment-form {
+      justify-content: center;
+      margin: auto;
+      text-align: center;
+  }
+  
+/* .create-comment-btn { */
+/* } */
+  
+.cancel-comment-btn {
+  background-color: #ffffff;
+  color: #ff5500;
+  border: 2px solid #ff5500;
+}
+  
+  .errors-msg {
+    color: black;
+    font-family: "League Spartan";
+  }
+

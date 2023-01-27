@@ -1,6 +1,8 @@
 .album-detail {
     display: flex;
+    flex-direction: column;
     justify-content: center;
+    align-items: center;
     width: 80%;
     margin: auto;
     margin-top: 70px;
@@ -43,4 +45,54 @@ li{
 
 .album-detail-buttons {
     margin-top: 20px;
+}
+
+.delete-album-btn {
+    background-color: #ffffff;
+    color: #ff5500;
+    border: 2px solid #ff5500;
+}
+
+.album-details-after-top-block {
+    display: block;
+    width: 80%;
+    margin-bottom: 25px;
+}
+
+/* Comments */
+
+.album-comments-div {
+    color: rgb(71, 71, 71);
+}
+
+.album-comments-header {
+    font-size: 25px;
+}
+
+/* Album Comment */
+
+.one-album-comment{
+    display: block;
+    margin-top: 20px;
+}
+
+.comment-user-div {
+    display: flex;
+    align-items: center;
+    color: rgb(71, 71, 71);
+}
+
+.comment-username {
+    font-size: 20px;
+    margin-right: 15px;
+}
+
+.comment-created {
+    color: rgb(71, 71, 71);
+    margin-right: 15px;
+}
+
+.comment-content {
+    margin-left: 20px;
+    color: rgb(71, 71, 71);
 }
