@@ -7,6 +7,8 @@ import { getAllCommentsForSong } from '../../store/comment';
 import './SongDetailPage.css';
 import SongComment from '../Comments/SongComment';
 import CommentModal from '../Comments/CommentModal';
+import { setAudio } from '../../store/audiobar';
+import { FaPlay } from "react-icons/fa";
 
 const SongDetailPage = () => {
     const dispatch= useDispatch();
@@ -15,6 +17,7 @@ const SongDetailPage = () => {
     const { songId } = useParams();
     const song = useSelector(state => state.song[songId]);
     const comments = Object.values(useSelector(state => state.comment));
+    const audioFromBar = useSelector(state => state.audiobar.song);
     const loggedInUser = useSelector(state => state.session.user);
     const [showEditSongForm, setShowEditSongForm] = useState(false);
     let otherInfo;
@@ -46,8 +49,14 @@ const SongDetailPage = () => {
         );
       }
 
+    
+      function playAudio(audio){
+        console.log('this audio', audio)
+        return dispatch(setAudio(audio))
+      }
+
   return (
-    <div className="song-detail">
+    <div className="song-detail-page">
       <div className="song-detail-info">
         <div className='song-detail-text'>
           <ul className='song-detail-ul'>
@@ -56,10 +65,9 @@ const SongDetailPage = () => {
               <li id='song-description'>{`Description: ${song.description}`}</li>
           </ul>
           <div id='song-url'>
-            <audio
-              controls
-              src={song.url}>{song.url}
-            </audio>
+            <button className='play-song-btn' onClick={() => {playAudio(song)}}>
+              <FaPlay className='fa-3x'/>
+              </button>
           </div> 
         </div>
         <div 

@@ -70,7 +70,7 @@ if (showEditAlbumForm && album.userId === loggedInUser?.id){
 };
 
     return (
-        <div className="album-detail">
+        <div className="album-detail-page">
             <div className="album-detail-info">
               <ul className='album-detail-ul'>
                   <li id='album-title' key={`${album.id}${album.title}`}>{album.title}</li>

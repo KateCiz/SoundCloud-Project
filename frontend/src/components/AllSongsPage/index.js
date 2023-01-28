@@ -42,11 +42,11 @@ const goToDetails = (songId) => {
                       <div>
                         <div className='song-list-title'>{song.title}</div>
                       </div>
-                      <audio
+                      {/* <audio
                         className='song-list-play'
                         controls
                         src={song.url}>{song.url}
-                      </audio>
+                      </audio> */}
                     </div>
                   </div>
                   </li>

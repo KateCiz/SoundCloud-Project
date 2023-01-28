@@ -1,4 +1,4 @@
-.song-detail {
+.song-detail-page {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -55,10 +55,19 @@ li{
     margin-top: 20px;
 }
 
+.play-song-btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+}
+
 .song-details-after-top-block {
     display: block;
     width: 80%;
-    margin-bottom: 25px;
+    margin-bottom: 100px;
 }
 
 .delete-song-btn {

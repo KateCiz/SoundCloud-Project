@@ -1,4 +1,4 @@
-.album-detail {
+.album-detail-page {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -56,7 +56,7 @@ li{
 .album-details-after-top-block {
     display: block;
     width: 80%;
-    margin-bottom: 25px;
+    margin-bottom: 100px;
 }
 
 /* Comments */

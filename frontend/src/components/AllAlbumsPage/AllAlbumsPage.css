@@ -1,9 +1,14 @@
 .album-detail {
-    display: inline-flex;
+    display: flex;
+    flex-direction: column;
     justify-content: center;
+    align-items: center;
     width: 80%;
     margin: auto;
+    margin-top: 70px;
+    margin-bottom: 100px;
 }
+
 
 .album-list-item {
     display: inline-flex;
