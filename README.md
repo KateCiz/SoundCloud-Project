@@ -24,15 +24,15 @@ This project is an example of some key functionality and styling associated with
 * Demo User (Login, Log Out, Access to All CRUD Operations)
 * Albums CRUD Operation
 * Songs CRUD Operation
+* Comments CRD Operation
 
 ## Fututre Functionality:
 
-* Comments CRUD Operation 
+* Comments Update Operation 
 * Playlists CRUD Operation
 * Current User Profile Page with CRUD Operation
 * Search Bar
 * Filter for Albums, Songs, & Playlists
-* Ability to play, pause, & skip to certain points in audio files
 
 ## Site Map
 
