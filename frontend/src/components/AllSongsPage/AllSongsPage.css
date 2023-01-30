@@ -1,9 +1,14 @@
 .song-detail {
     display: flex;
+    flex-direction: column;
     justify-content: center;
+    align-items: center;
     width: 80%;
     margin: auto;
+    margin-top: 70px;
+    margin-bottom: 100px;
 }
+
 .song-list-image {
     height: 150px;
     width: 150px;
@@ -29,6 +34,7 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    margin-left: 20px;
 }
 
 li{

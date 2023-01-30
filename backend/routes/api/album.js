@@ -1,7 +1,7 @@
 const express = require('express')
 const router = express.Router();
 
-const { User, Song, Album } = require('../../db/models');
+const { User, Song, Album, Comment } = require('../../db/models');
 const { requireAuth } = require('../../utils/auth.js');
 
 
@@ -124,7 +124,12 @@ async (req, res, next) => {
                 { as: "Artist", model: User,
                 attributes: ['id', 'username', 'previewImage']
                 },
-                { model: Song}
+                { model: Song, 
+                    include: [{ model: Comment, 
+                        include: [{ model: User, attributes: ['id', 'username']
+                        }]
+                    }]
+                }
             ]
         });
     

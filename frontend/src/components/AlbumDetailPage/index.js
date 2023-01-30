@@ -4,8 +4,10 @@ import { useSelector, useDispatch } from 'react-redux';
 import EditAlbumModal from '../EditAlbumModal';
 import AddSongModal from '../AddSongModal.js';
 import { getOneAlbum, removeAlbum } from '../../store/album';
+import AlbumComment from '../Comments/AlbumComment';
 import './AlbumDetailPage.css';
 import { removeSong } from '../../store/song';
+import { getAllCommentsForSong } from '../../store/comment';
 
 const AlbumDetailPage = () => {
   const dispatch= useDispatch();
@@ -13,6 +15,7 @@ const AlbumDetailPage = () => {
   
   const { albumId } = useParams();
   const album = useSelector(state => state.album[albumId]);
+  const comments = Object.values(useSelector(state => state.comment));
   const [showEditAlbumForm, setShowEditAlbumForm] = useState(false);
   const [showCreateSongForm, setShowCreateSongForm] = useState(false);
   const loggedInUser = useSelector(state => state.session.user);
@@ -22,6 +25,7 @@ const AlbumDetailPage = () => {
   useEffect(() => {
     setShowEditAlbumForm(false);
 	  dispatch (getOneAlbum(albumId));
+    // dispatch (getAllCommentsForAlbum(albumId));
   }, [albumId, dispatch]);
 
   useEffect(() => {
@@ -66,7 +70,7 @@ if (showEditAlbumForm && album.userId === loggedInUser?.id){
 };
 
     return (
-        <div className="album-detail">
+        <div className="album-detail-page">
             <div className="album-detail-info">
               <ul className='album-detail-ul'>
                   <li id='album-title' key={`${album.id}${album.title}`}>{album.title}</li>
@@ -83,23 +87,35 @@ if (showEditAlbumForm && album.userId === loggedInUser?.id){
                 style={{ backgroundImage: `url('${album.previewImage}')` }}>
               </div>
           </div>
-
+          <div className='album-details-after-top-block'>
             <div className='album-detail-buttons'>
               {(!showEditAlbumForm && album.userId === loggedInUser?.id) && (
-                <button onClick={() => setShowEditAlbumForm(true)}>Edit</button>
+                <button onClick={() => setShowEditAlbumForm(true)}>Edit Album</button>
               )}
               {(album.userId === loggedInUser?.id) && (
-                <button onClick={() => (getRidOfAlbum(albumId))}>Delete</button>
+                <button className="delete-album-btn" onClick={() => (getRidOfAlbum(albumId))}>Delete Album</button>
               )}
             {(!showCreateSongForm && album.userId === loggedInUser?.id) && (
                 <button onClick={() => setShowCreateSongForm(true)}>Add Song</button>
               )}
             </div>
-          <div>
-          {editForm}
-          </div>
-          <div>
-          {createForm}
+            <div>
+            {editForm}
+            </div>
+            <div>
+            {createForm}
+            </div>
+            <div className="album-comments-div">
+              <p className="album-comments-header">Comments:</p>
+              {/* {loggedInUser && <CommentModal />} */}
+              {album?.Songs?.map((song, i) => {
+                return (
+                  song?.Comments?.map(comment => {
+                    return <AlbumComment key={i} comment={comment} />
+                  })
+                )
+              })}
+            </div>
           </div>
         </div>
       );

@@ -1,12 +1,11 @@
 footer {
     background-color: #333;
-    display: flex;
+    display: grid;
+    place-items: center;
     position: fixed;
-    flex-direction: row;
-    justify-content:  center;
-    align-self: center;
     width: 100%;
     bottom: 0;
+    margin-top: 20px;
 }
 
 .about-links-text {
@@ -14,5 +13,35 @@ footer {
     color: #ccc;
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
     text-decoration: none;
+    margin-bottom: 5px;
+    margin-top: 5px;
+}
+
+.audiobar {
+    width: 100%;
+    color: #ccc;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    margin-bottom: 10px;
+    margin-top: 10px;
+}
+
+.audio-player {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+div.rhap_header {
+    margin-right: 20px;
+}
+
+div.rhap_progress-section{
+    display: inline-flex;
+    margin-right: 20px;
+}
+
+div.rhap_controls-section {
+    display: inline-flex;
 }
 
