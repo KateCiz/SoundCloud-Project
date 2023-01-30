@@ -40,27 +40,27 @@ This project is an example of some key functionality and styling associated with
 
 ## Home Page
 
-<img src=https://res.cloudinary.com/dymmlu1dw/image/upload/v1662834273/soundcloud/SplashPageSoundCloud1_gm9vay.png>
-
-## Logged In Home Page
-
-<img src=https://res.cloudinary.com/dymmlu1dw/image/upload/v1662834279/soundcloud/LoggedInSplashSoundCloud1_aua64d.png>
+<img src=https://res.cloudinary.com/dymmlu1dw/image/upload/v1675051635/soundcloud/SoundCloud-splash1_ygkvje.png>
 
 ## All Songs
 
-<img src=https://res.cloudinary.com/dymmlu1dw/image/upload/v1662834286/soundcloud/AllSongsSoundCloud1_pkmfkk.png>
+<img src=https://res.cloudinary.com/dymmlu1dw/image/upload/v1675051666/soundcloud/SoundCloud-songs1_hnjkkl.png>
 
 ## All Albums
 
-<img src=https://res.cloudinary.com/dymmlu1dw/image/upload/v1662844927/soundcloud/AllAlbumsSoundCloud3_kafdy0.png>
+<img src=https://res.cloudinary.com/dymmlu1dw/image/upload/v1675051889/soundcloud/SoundCloud-albums1_ikxkwm.png>
 
 ## Song Details
 
-<img src=https://res.cloudinary.com/dymmlu1dw/image/upload/v1662834303/soundcloud/SongDetailsSoundCloud1_iunhfu.png>
+<img src=https://res.cloudinary.com/dymmlu1dw/image/upload/v1675051658/soundcloud/SongDetailsSoundCloud11_iytewr.png>
+
+## Comments Modal
+
+<img src=https://res.cloudinary.com/dymmlu1dw/image/upload/v1675051646/soundcloud/SoundCloud-modal1_yadjyh.png>
 
 ## Album Details
 
-<img src=https://res.cloudinary.com/dymmlu1dw/image/upload/v1662834312/soundcloud/AlbumDetailsSoundCloud1_ck8oxn.png>
+<img src=https://res.cloudinary.com/dymmlu1dw/image/upload/v1675051640/soundcloud/SoundCloud-albumpage1_plcprm.png>
 
 ## Technologies:
 
